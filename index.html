@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gulfline Digital — Websites for Tutors, Trainers & Freelancers in the UAE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal-deep:#0D1B2A;
+    --teal-mid:#16283D;
+    --sand:#EFE7D8;
+    --sand-light:#F9F6EF;
+    --coral:#C9A961;
+    --coral-bright:#E0C078;
+    --ink:#12242A;
+    --white:#FFFDF9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--sand-light);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  [dir="rtl"] body{font-family:'Noto Kufi Arabic','Inter',sans-serif;}
+  h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-0.02em;}
+  [dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] h3,[dir="rtl"] .display{font-family:'Noto Kufi Arabic',sans-serif;letter-spacing:0;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  /* Wave divider signature element */
+  .wave{width:100%;height:60px;display:block;}
+  .wave path{fill:var(--sand-light);}
+  .wave.flip path{fill:var(--teal-deep);}
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(249,246,239,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(13,27,42,0.08);
+    overflow:hidden;
+  }
+  .header-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+  .header-bg .h-wave{position:absolute;top:0;left:0;width:200%;height:100%;opacity:0.45;}
+  .header-bg .h-wave path{fill:none;stroke:#C9A961;stroke-width:1.6;}
+  .header-bg .h-wave-1{animation:hWaveMove 12s linear infinite;}
+  .header-bg .h-wave-2{opacity:0.25;animation:hWaveMove 17s linear infinite reverse;}
+  @keyframes hWaveMove{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  .header-bg .h-circle{position:absolute;border-radius:50%;border:1px solid rgba(201,169,97,0.3);}
+  .header-bg .h-circle-1{width:16px;height:16px;top:14px;left:12%;animation:hDrift 9s ease-in-out infinite;}
+  .header-bg .h-circle-2{width:9px;height:9px;top:30px;left:45%;background:rgba(201,169,97,0.35);animation:hDrift 7s ease-in-out infinite;animation-delay:1s;}
+  .header-bg .h-circle-3{width:12px;height:12px;top:10px;left:75%;animation:hDrift 11s ease-in-out infinite;animation-delay:2s;}
+  .header-bg .h-circle-4{width:6px;height:6px;top:36px;left:88%;background:rgba(201,169,97,0.4);animation:hDrift 8s ease-in-out infinite;animation-delay:.5s;}
+  @keyframes hDrift{0%,100%{transform:translateY(0);opacity:0.6;}50%{transform:translateY(-8px);opacity:1;}}
+  @media (prefers-reduced-motion: reduce){
+    .header-bg .h-wave-1,.header-bg .h-wave-2,.header-bg .h-circle-1,.header-bg .h-circle-2,.header-bg .h-circle-3,.header-bg .h-circle-4{animation:none;}
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;max-width:1080px;margin:0 auto;position:relative;z-index:1;}
+  .logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.3rem;color:var(--teal-deep);display:flex;align-items:center;gap:10px;}
+  .logo-mark{width:46px;height:46px;flex-shrink:0;}
+  .logo-mark .lm-letters{animation:lmShift 5s ease-in-out infinite;}
+  .logo-mark .lm-underline{stroke-dasharray:30 30;animation:lmSweep 3s linear infinite;}
+  .logo-mark .lm-corner{animation:lmCornerPulse 2.6s ease-in-out infinite;transform-origin:center;}
+  .logo-mark .lm-corner:nth-of-type(2){animation-delay:.6s;}
+  @keyframes lmShift{0%,100%{transform:translateY(0);}50%{transform:translateY(-1px);}}
+  @keyframes lmSweep{to{stroke-dashoffset:-60;}}
+  @keyframes lmCornerPulse{0%,100%{opacity:0.4;r:1.4;}50%{opacity:1;r:2.2;}}
+  @media (prefers-reduced-motion: reduce){
+    .logo-mark .lm-letters,.logo-mark .lm-underline,.logo-mark .lm-corner{animation:none;}
+  }
+  .lang-toggle{
+    display:flex;gap:4px;background:var(--sand);border-radius:999px;padding:4px;
+  }
+  .lang-toggle button{
+    padding:6px 16px;border:none;background:transparent;border-radius:999px;
+    font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:600;cursor:pointer;
+    color:var(--teal-deep);transition:all .2s ease;
+  }
+  .lang-toggle button.active{background:var(--teal-deep);color:var(--white);}
+
+  /* Hero */
+  .hero{
+    background:var(--teal-deep);color:var(--white);
+    padding:90px 24px 70px;position:relative;overflow:hidden;
+  }
+  .hero::before{
+    content:'';position:absolute;top:-50%;right:-10%;width:600px;height:600px;
+    background:radial-gradient(circle, rgba(201,169,97,0.18) 0%, transparent 70%);
+  }
+  .hero-bg{position:absolute;inset:0;overflow:hidden;z-index:1;pointer-events:none;}
+  .star{position:absolute;border-radius:50%;background:#fff;animation:starTwinkle ease-in-out infinite;}
+  @keyframes starTwinkle{0%,100%{opacity:0.15;transform:scale(0.8);}50%{opacity:1;transform:scale(1.3);}}
+  @media (prefers-reduced-motion: reduce){.star{animation:none;opacity:0.5;}}
+  .orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:0.35;}
+  .orb-1{width:420px;height:420px;background:radial-gradient(circle,#C9A961,transparent 70%);top:-120px;right:-80px;animation:float1 14s ease-in-out infinite;}
+  .orb-2{width:320px;height:320px;background:radial-gradient(circle,#1F3A52,transparent 70%);bottom:-100px;left:-60px;animation:float2 18s ease-in-out infinite;}
+  .orb-3{width:200px;height:200px;background:radial-gradient(circle,#E0C078,transparent 70%);top:40%;left:60%;animation:float3 16s ease-in-out infinite;}
+  @keyframes float1{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-30px,40px) scale(1.08);}}
+  @keyframes float2{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(40px,-30px) scale(1.1);}}
+  @keyframes float3{0%,100%{transform:translate(0,0);}50%{transform:translate(-25px,-35px);}}
+
+  /* Globe network visual */
+  .globe-wrap{position:absolute;top:50%;inset-inline-end:-60px;transform:translateY(-50%);width:480px;height:480px;opacity:0.9;z-index:1;pointer-events:none;}
+  .globe-wrap svg{width:100%;height:100%;}
+  .globe-rotate{animation:globeSpin 40s linear infinite;transform-origin:240px 240px;}
+  @keyframes globeSpin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+  .globe-node{animation:nodePulse 2.8s ease-in-out infinite;transform-origin:center;}
+  .globe-node.n2{animation-delay:.6s;}
+  .globe-node.n3{animation-delay:1.2s;}
+  .globe-node.n4{animation-delay:1.8s;}
+  @keyframes nodePulse{0%,100%{opacity:0.4;r:2.5;}50%{opacity:1;r:4.5;}}
+  .globe-line{stroke-dasharray:4 6;animation:lineFlow 3s linear infinite;}
+  @keyframes lineFlow{to{stroke-dashoffset:-40;}}
+  .touch-point{animation:touchPulse 2.4s ease-out infinite;transform-origin:center;}
+  @keyframes touchPulse{0%{transform:scale(0.6);opacity:0.9;}70%{transform:scale(2.4);opacity:0;}100%{opacity:0;}}
+  @media (max-width:900px){.globe-wrap{display:none;}}
+  @media (prefers-reduced-motion: reduce){
+    .globe-rotate,.globe-node,.globe-line,.touch-point{animation:none;}
+  }
+
+  /* Signal traveling from hero text side toward the globe, node shines on arrival */
+  .hero-signal{position:absolute;top:52%;inset-inline-start:0;width:56%;height:2px;z-index:1;pointer-events:none;overflow:visible;}
+  .hero-signal-dot{position:absolute;top:-3px;left:0;width:7px;height:7px;border-radius:50%;background:radial-gradient(circle,#FFE29A,#E85DAB 70%);box-shadow:0 0 12px 3px rgba(232,93,171,0.7);animation:heroSignalTravel 4.5s ease-in-out infinite;}
+  @keyframes heroSignalTravel{
+    0%{left:0%;opacity:0;transform:scale(0.5);}
+    10%{opacity:1;transform:scale(1);}
+    55%{left:100%;opacity:1;transform:scale(1);}
+    60%{left:100%;opacity:0;transform:scale(0.3);}
+    100%{left:100%;opacity:0;}
+  }
+  .globe-node.arrival-target{animation:nodePulse 2.8s ease-in-out infinite, nodeArrivalShine 4.5s ease-in-out infinite;}
+  @keyframes nodeArrivalShine{
+    0%,52%{r:2.5;filter:none;}
+    60%{r:7;filter:drop-shadow(0 0 8px #E85DAB);}
+    72%,100%{r:2.5;filter:none;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hero-signal-dot,.globe-node.arrival-target{animation:none;}
+  }
+  .hero-inner{max-width:1080px;margin:0 auto;position:relative;z-index:2;}
+  .eyebrow{
+    display:inline-block;font-size:0.8rem;font-weight:600;letter-spacing:0.08em;
+    text-transform:uppercase;color:var(--coral-bright);margin-bottom:18px;
+    border:1px solid rgba(201,169,97,0.4);padding:6px 14px;border-radius:999px;
+  }
+  .hero h1{font-size:clamp(2.1rem,5vw,3.4rem);line-height:1.12;max-width:780px;margin-bottom:20px;}
+  .hero h1 span{color:var(--coral-bright);}
+  .hero p.sub{font-size:1.15rem;color:rgba(255,253,249,0.82);max-width:560px;margin-bottom:34px;}
+  .btn-row{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;
+    font-weight:600;font-size:1rem;cursor:pointer;border:none;transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary{background:var(--coral);color:var(--white);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,169,97,0.35);}
+  .btn-ghost{background:transparent;border:1px solid rgba(255,253,249,0.3);color:var(--white);}
+  .btn-ghost:hover{background:rgba(255,253,249,0.08);}
+
+  /* Problem section */
+  .problem{padding:80px 24px;background:var(--sand-light);}
+  .problem-inner{max-width:780px;margin:0 auto;text-align:center;}
+  .problem h2{font-size:clamp(1.6rem,3.5vw,2.2rem);margin-bottom:20px;color:var(--teal-deep);}
+  .problem p{font-size:1.1rem;color:#3d4d4f;max-width:620px;margin:0 auto;}
+
+  /* Offer / features */
+  .offer{padding:80px 24px;background:var(--sand);}
+  .offer-inner{max-width:1080px;margin:0 auto;}
+  .offer-head{text-align:center;margin-bottom:56px;}
+  .offer-head h2{font-size:clamp(1.6rem,3.5vw,2.2rem);color:var(--teal-deep);margin-bottom:14px;}
+  .offer-head p{color:#4a5a5c;font-size:1.05rem;}
+  .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .feature-card{
+    background:var(--white);padding:32px 26px;border-radius:16px;
+    border:1px solid rgba(13,27,42,0.08);
+  }
+  .feature-icon{
+    width:44px;height:44px;border-radius:12px;background:var(--teal-deep);
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:var(--coral-bright);
+  }
+  .feature-card h3{font-size:1.1rem;color:var(--teal-deep);margin-bottom:10px;}
+  .feature-card p{font-size:0.95rem;color:#5a6a6c;}
+
+  /* Pricing */
+  .pricing{padding:80px 24px;background:var(--teal-deep);color:var(--white);position:relative;overflow:hidden;}
+  .code-bg{
+    position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+  }
+  .code-bg .code-col{
+    position:absolute;top:50%;transform:translateY(-50%);opacity:0.32;width:280px;
+  }
+  .code-bg .code-col.left{left:2%;text-align:left;}
+  .code-bg .code-col.right{right:2%;text-align:right;}
+  @media (max-width:980px){
+    .code-bg .code-col{display:none;}
+  }
+  .code-bg pre{
+    font-family:'SF Mono','Consolas',monospace;font-size:0.85rem;line-height:1.7;
+    color:#EFE7D8;white-space:pre-wrap;max-width:640px;
+  }
+  .code-bg .typed-line{display:block;overflow:hidden;white-space:nowrap;width:0;animation:typeLine 1.4s steps(30,end) forwards;}
+  .code-bg .l1{animation-delay:0s;}
+  .code-bg .l2{animation-delay:1.4s;}
+  .code-bg .l3{animation-delay:2.8s;}
+  .code-bg .l4{animation-delay:4.2s;}
+  .code-bg .l5{animation-delay:5.6s;}
+  .code-bg .l6{animation-delay:7s;}
+  .code-bg .r1{animation-delay:.7s;}
+  .code-bg .r2{animation-delay:2.1s;}
+  .code-bg .r3{animation-delay:3.5s;}
+  .code-bg .r4{animation-delay:4.9s;}
+  .code-bg .r5{animation-delay:6.3s;}
+  .code-bg .r6{animation-delay:7.7s;}
+  @keyframes typeLine{from{width:0;}to{width:100%;}}
+  .code-bg .tag{color:#FFB84D;}
+  .code-bg .attr{color:#7C6BFF;}
+  .code-bg .str{color:#E85DAB;}
+  @media (prefers-reduced-motion: reduce){
+    .code-bg .typed-line{width:100%;animation:none;}
+  }
+  .pricing-inner{max-width:640px;margin:0 auto;text-align:center;position:relative;z-index:1;}
+  .pricing h2{font-size:clamp(1.6rem,3.5vw,2.2rem);margin-bottom:12px;}
+  .pricing>.pricing-inner>p{color:rgba(255,253,249,0.75);margin-bottom:40px;}
+  .price-card{
+    background:rgba(255,253,249,0.06);border:1px solid rgba(255,253,249,0.15);
+    border-radius:20px;padding:44px 32px;position:relative;overflow:hidden;
+  }
+  .price-card-code{
+    position:absolute;inset:0;z-index:0;pointer-events:none;
+    display:flex;align-items:flex-start;justify-content:center;padding-top:20px;opacity:0.22;
+  }
+  .price-card-code pre{
+    font-family:'SF Mono','Consolas',monospace;font-size:0.72rem;line-height:1.6;
+    color:#EFE7D8;white-space:pre-wrap;max-width:90%;
+  }
+  .price-card-code .typed-line{display:block;overflow:hidden;white-space:nowrap;width:0;animation:typeLine 1.1s steps(26,end) forwards;}
+  .price-card-code .pl1{animation-delay:0s;}
+  .price-card-code .pl2{animation-delay:1.1s;}
+  .price-card-code .pl3{animation-delay:2.2s;}
+  .price-card-code .pl4{animation-delay:3.3s;}
+  .price-card-code .pl5{animation-delay:4.4s;}
+  .price-card-code .pl6{animation-delay:5.5s;}
+  .price-card > *:not(.price-card-code){position:relative;z-index:1;}
+  @media (prefers-reduced-motion: reduce){
+    .price-card-code .typed-line{width:100%;animation:none;}
+  }
+  .price-tag{font-family:'Space Grotesk',sans-serif;font-size:3rem;font-weight:700;color:var(--coral-bright);}
+  .price-tag sup{font-size:1.1rem;font-weight:500;}
+  .price-note{font-size:0.9rem;color:rgba(255,253,249,0.6);margin-top:6px;margin-bottom:28px;}
+  .price-list{list-style:none;text-align:start;max-width:340px;margin:0 auto 32px;}
+  .price-list li{padding:8px 0;font-size:0.95rem;color:rgba(255,253,249,0.9);display:flex;gap:10px;align-items:flex-start;}
+  .price-list li::before{content:'✓';color:var(--coral-bright);font-weight:700;flex-shrink:0;}
+  .maintenance{font-size:0.85rem;color:rgba(255,253,249,0.55);margin-top:18px;}
+
+  /* Final CTA */
+  .cta-final{padding:90px 24px;background:var(--sand-light);text-align:center;}
+  .cta-final h2{font-size:clamp(1.6rem,3.5vw,2.2rem);color:var(--teal-deep);margin-bottom:16px;}
+  .cta-final p{color:#4a5a5c;font-size:1.05rem;margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto;}
+
+  /* Footer */
+  footer{background:var(--teal-deep);color:rgba(255,253,249,0.5);padding:32px 24px;text-align:center;font-size:0.85rem;}
+  footer .logo{color:var(--white);justify-content:center;margin-bottom:8px;}
+
+  /* WhatsApp float button */
+  .wa-float{
+    position:fixed;bottom:24px;inset-inline-end:24px;z-index:60;
+    width:58px;height:58px;border-radius:50%;background:#25D366;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,0.25);
+    transition:transform .2s ease;
+  }
+  .wa-float:hover{transform:scale(1.08);}
+
+  @media (max-width:760px){
+    .feature-grid{grid-template-columns:1fr;}
+    .hero{padding:70px 20px 50px;}
+  }
+
+  /* Cursor spotlight section — dark, glow follows mouse */
+  .spotlight{
+    position:relative;background:#0A0A0C;color:#F5F0E8;padding:100px 24px;overflow:hidden;
+  }
+  .spotlight-glow{
+    position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;
+    background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%), rgba(201,169,97,0.18), rgba(15,40,90,0.10) 40%, transparent 65%);
+    transition:background .05s ease-out;
+  }
+  .spotlight-inner{max-width:780px;margin:0 auto;text-align:center;position:relative;z-index:2;}
+  .spotlight-eyebrow{font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:#C9A961;margin-bottom:18px;display:block;}
+  .spotlight h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:20px;color:#F5F0E8;}
+  .spotlight p{color:rgba(245,240,232,0.65);font-size:1.05rem;max-width:520px;margin:0 auto;}
+  .spotlight-grid{position:absolute;inset:0;opacity:0.06;background-image:linear-gradient(rgba(245,240,232,0.5) 1px,transparent 1px),linear-gradient(90deg,rgba(245,240,232,0.5) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;}
+  @media (prefers-reduced-motion: reduce){
+    .spotlight-glow{transition:none;background:radial-gradient(600px circle at 50% 50%, rgba(201,169,97,0.14), transparent 65%);}
+  }
+  [data-lang="ar"]{display:none;}
+  html[dir="rtl"] [data-lang="en"]{display:none;}
+
+  /* Hand + network illustration section */
+  .showcase{padding:70px 24px 90px;background:var(--sand-light);text-align:center;overflow:hidden;}
+  .showcase-eyebrow{font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--coral);margin-bottom:10px;display:block;}
+  .showcase h2{font-size:clamp(1.5rem,3.2vw,2rem);color:var(--teal-deep);margin-bottom:40px;max-width:520px;margin-left:auto;margin-right:auto;}
+  .showcase-svg-wrap{max-width:640px;margin:0 auto;}
+  .showcase-svg-wrap svg{width:100%;height:auto;}
+  .sc-line{stroke-dasharray:5 5;animation:scFlow 2.5s linear infinite;}
+  @keyframes scFlow{to{stroke-dashoffset:-20;}}
+  .sc-badge{animation:scFloat ease-in-out infinite;transform-origin:center;}
+  .sc-badge-1{animation-duration:5s;}
+  .sc-badge-2{animation-duration:6s;animation-delay:.5s;}
+  .sc-badge-3{animation-duration:5.5s;animation-delay:1s;}
+  .sc-badge-4{animation-duration:6.5s;animation-delay:1.5s;}
+  @keyframes scFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+  .sc-glow{animation:scGlow 2.8s ease-in-out infinite;transform-origin:center;}
+  @keyframes scGlow{0%,100%{opacity:0.5;r:3;}50%{opacity:1;r:5;}}
+  @media (prefers-reduced-motion: reduce){
+    .sc-line,.sc-badge,.sc-glow{animation:none;}
+  }
+  html[dir="rtl"] [data-lang="ar"]{display:block;}
+  html[dir="rtl"] .btn-row{flex-direction:row-reverse;justify-content:flex-end;}
+  html[dir="rtl"] .price-list li{flex-direction:row-reverse;}
+
+  /* Scroll reveal */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+  .feature-card{transition:transform .25s ease, box-shadow .25s ease, opacity .7s ease;}
+  .feature-card:hover{transform:translateY(-6px);box-shadow:0 16px 32px rgba(13,27,42,0.12);}
+  .price-card{transition:transform .3s ease;}
+  .btn{transition:transform .15s ease, box-shadow .15s ease;}
+
+  /* Animated wave (subtle drift, not seasick) */
+  .wave path{animation:waveShift 10s ease-in-out infinite;}
+  @keyframes waveShift{
+    0%,100%{d:path("M0,30 C300,60 600,0 900,30 C1050,45 1150,15 1200,30 L1200,60 L0,60 Z");}
+  }
+  .hero h1 span{background:linear-gradient(90deg,#C9A961,#E0C078,#C9A961);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5s linear infinite;}
+  @keyframes shine{0%{background-position:0% center;}100%{background-position:200% center;}}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    .orb, .hero h1 span, .wave path{animation:none;}
+    .feature-card:hover{transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-bg">
+    <svg class="h-wave h-wave-1" viewBox="0 0 1200 64" preserveAspectRatio="none"><path d="M0,32 C50,8 100,56 150,32 C200,8 250,56 300,32 C350,8 400,56 450,32 C500,8 550,56 600,32 C650,8 700,56 750,32 C800,8 850,56 900,32 C950,8 1000,56 1050,32 C1100,8 1150,56 1200,32"/></svg>
+    <svg class="h-wave h-wave-2" viewBox="0 0 1200 64" preserveAspectRatio="none"><path d="M0,32 C50,56 100,8 150,32 C200,56 250,8 300,32 C350,56 400,8 450,32 C500,56 550,8 600,32 C650,56 700,8 750,32 C800,56 850,8 900,32 C950,56 1000,8 1050,32 C1100,56 1150,8 1200,32"/></svg>
+    <div class="h-circle h-circle-1"></div>
+    <div class="h-circle h-circle-2"></div>
+    <div class="h-circle h-circle-3"></div>
+    <div class="h-circle h-circle-4"></div>
+  </div>
+  <div class="nav">
+    <div class="logo">
+      <svg class="logo-mark" viewBox="0 0 46 46" fill="none">
+        <defs>
+          <linearGradient id="gdGrad" x1="6" y1="10" x2="40" y2="36" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#E0C078"/>
+            <stop offset="100%" stop-color="#C9A961"/>
+          </linearGradient>
+        </defs>
+        <rect x="1" y="1" width="44" height="44" rx="12" fill="#0D1B2A"/>
+        <g class="lm-letters">
+          <!-- G -->
+          <path d="M18 15C15 15 12.5 17.8 12.5 23C12.5 28.2 15 31 18 31C20 31 21.6 29.9 22 28.5V24H18.3" stroke="url(#gdGrad)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <!-- D -->
+          <path d="M26 15V31H29.5C33 31 35 28.2 35 23C35 17.8 33 15 29.5 15H26Z" stroke="#EFE7D8" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
+        </g>
+        <line class="lm-underline" x1="9" y1="36" x2="37" y2="36" stroke="url(#gdGrad)" stroke-width="2" stroke-linecap="round"/>
+        <circle class="lm-corner" cx="9" cy="9" r="1.6" fill="#E0C078"/>
+        <circle class="lm-corner" cx="37" cy="9" r="1.6" fill="#C9A961"/>
+      </svg>
+      Gulfline Digital
+    </div>
+    <div class="lang-toggle">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="btn-ar" onclick="setLang('ar')">عربي</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg">
+    <div class="star" style="top:83%;left:16%;width:1.0px;height:1.0px;animation-duration:2.8s;animation-delay:0.8s;opacity:0.77;"></div>
+    <div class="star" style="top:88%;left:96%;width:2.4px;height:2.4px;animation-duration:2.4s;animation-delay:1.5s;opacity:0.41;"></div>
+    <div class="star" style="top:29%;left:31%;width:1.8px;height:1.8px;animation-duration:2.3s;animation-delay:0.7s;opacity:0.72;"></div>
+    <div class="star" style="top:71%;left:55%;width:1.4px;height:1.4px;animation-duration:3.6s;animation-delay:2.8s;opacity:0.4;"></div>
+    <div class="star" style="top:22%;left:91%;width:1.7px;height:1.7px;animation-duration:2.8s;animation-delay:0.8s;opacity:0.78;"></div>
+    <div class="star" style="top:15%;left:13%;width:1.6px;height:1.6px;animation-duration:3.0s;animation-delay:1.2s;opacity:0.53;"></div>
+    <div class="star" style="top:7%;left:95%;width:1.7px;height:1.7px;animation-duration:2.5s;animation-delay:3.2s;opacity:0.44;"></div>
+    <div class="star" style="top:39%;left:82%;width:2.0px;height:2.0px;animation-duration:4.2s;animation-delay:2.0s;opacity:0.75;"></div>
+    <div class="star" style="top:7%;left:86%;width:1.4px;height:1.4px;animation-duration:2.9s;animation-delay:0.3s;opacity:0.52;"></div>
+    <div class="star" style="top:14%;left:50%;width:1.4px;height:1.4px;animation-duration:3.7s;animation-delay:1.3s;opacity:0.59;"></div>
+    <div class="star" style="top:28%;left:87%;width:1.4px;height:1.4px;animation-duration:4.4s;animation-delay:2.3s;opacity:0.7;"></div>
+    <div class="star" style="top:23%;left:70%;width:2.2px;height:2.2px;animation-duration:2.6s;animation-delay:1.3s;opacity:0.89;"></div>
+    <div class="star" style="top:83%;left:90%;width:1.9px;height:1.9px;animation-duration:3.8s;animation-delay:2.9s;opacity:0.79;"></div>
+    <div class="star" style="top:31%;left:6%;width:2.3px;height:2.3px;animation-duration:3.1s;animation-delay:0.2s;opacity:0.86;"></div>
+    <div class="star" style="top:74%;left:93%;width:1.5px;height:1.5px;animation-duration:3.7s;animation-delay:1.4s;opacity:0.86;"></div>
+    <div class="star" style="top:60%;left:20%;width:1.4px;height:1.4px;animation-duration:2.8s;animation-delay:2.0s;opacity:0.53;"></div>
+    <div class="star" style="top:76%;left:56%;width:2.4px;height:2.4px;animation-duration:3.1s;animation-delay:0.8s;opacity:0.9;"></div>
+    <div class="star" style="top:67%;left:65%;width:1.1px;height:1.1px;animation-duration:2.3s;animation-delay:0.4s;opacity:0.71;"></div>
+    <div class="star" style="top:89%;left:56%;width:2.0px;height:2.0px;animation-duration:3.1s;animation-delay:2.1s;opacity:0.63;"></div>
+    <div class="star" style="top:34%;left:72%;width:2.4px;height:2.4px;animation-duration:2.2s;animation-delay:2.5s;opacity:0.74;"></div>
+    <div class="star" style="top:70%;left:36%;width:2.2px;height:2.2px;animation-duration:3.0s;animation-delay:1.0s;opacity:0.48;"></div>
+    <div class="star" style="top:2%;left:94%;width:2.4px;height:2.4px;animation-duration:2.8s;animation-delay:1.8s;opacity:0.49;"></div>
+    <div class="star" style="top:15%;left:82%;width:1.5px;height:1.5px;animation-duration:3.7s;animation-delay:2.1s;opacity:0.48;"></div>
+    <div class="star" style="top:22%;left:71%;width:2.5px;height:2.5px;animation-duration:4.3s;animation-delay:3.2s;opacity:0.7;"></div>
+    <div class="star" style="top:64%;left:4%;width:1.2px;height:1.2px;animation-duration:3.0s;animation-delay:3.4s;opacity:0.8;"></div>
+    <div class="star" style="top:32%;left:9%;width:1.4px;height:1.4px;animation-duration:3.5s;animation-delay:0.3s;opacity:0.77;"></div>
+    <div class="star" style="top:10%;left:70%;width:2.2px;height:2.2px;animation-duration:2.5s;animation-delay:1.7s;opacity:0.67;"></div>
+    <div class="star" style="top:35%;left:69%;width:2.4px;height:2.4px;animation-duration:3.2s;animation-delay:0.7s;opacity:0.67;"></div>
+
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="hero-signal">
+    <div class="hero-signal-dot"></div>
+  </div>
+  <div class="globe-wrap">
+    <svg viewBox="0 0 480 480">
+      <defs>
+        <radialGradient id="galaxyGlobeBg" cx="50%" cy="45%" r="60%">
+          <stop offset="0%" stop-color="rgba(124,107,255,0.10)"/>
+          <stop offset="100%" stop-color="rgba(124,107,255,0)"/>
+        </radialGradient>
+      </defs>
+      <circle cx="240" cy="240" r="180" fill="url(#galaxyGlobeBg)"/>
+      <g class="globe-rotate">
+        <circle cx="240" cy="240" r="150" fill="none" stroke="rgba(239,231,216,0.18)" stroke-width="1"/>
+        <ellipse cx="240" cy="240" rx="150" ry="55" fill="none" stroke="rgba(239,231,216,0.22)" stroke-width="1"/>
+        <ellipse cx="240" cy="240" rx="150" ry="100" fill="none" stroke="rgba(239,231,216,0.16)" stroke-width="1"/>
+        <ellipse cx="240" cy="240" rx="55" ry="150" fill="none" stroke="rgba(239,231,216,0.16)" stroke-width="1"/>
+        <line x1="90" y1="240" x2="390" y2="240" stroke="rgba(239,231,216,0.14)" stroke-width="1"/>
+
+        <line class="globe-line" x1="240" y1="140" x2="330" y2="200" stroke="#7C6BFF" stroke-width="1.5" opacity="0.6"/>
+        <line class="globe-line" x1="240" y1="140" x2="170" y2="260" stroke="#E85DAB" stroke-width="1.5" opacity="0.5"/>
+        <line class="globe-line" x1="330" y1="200" x2="290" y2="330" stroke="#FFB84D" stroke-width="1.5" opacity="0.5"/>
+        <line class="globe-line" x1="170" y1="260" x2="290" y2="330" stroke="#E85DAB" stroke-width="1.5" opacity="0.4"/>
+
+        <circle class="globe-node n1" cx="240" cy="140" r="3.5" fill="#7C6BFF"/>
+        <circle class="globe-node n2" cx="330" cy="200" r="3.5" fill="#FFB84D"/>
+        <circle class="globe-node n3 arrival-target" cx="170" cy="260" r="3.5" fill="#E85DAB"/>
+        <circle class="globe-node n4" cx="290" cy="330" r="3.5" fill="#7C6BFF"/>
+      </g>
+
+      <!-- touch point ripple, stays fixed (not rotating with globe) -->
+      <circle cx="330" cy="200" r="6" fill="none" stroke="#FFB84D" stroke-width="1.5" class="touch-point"/>
+      <circle cx="330" cy="200" r="4" fill="#FFB84D"/>
+    </svg>
+  </div>
+  <div class="hero-inner">
+    <span class="eyebrow" data-lang="en">For tutors, trainers & freelancers</span>
+    <span class="eyebrow" data-lang="ar">للمدرّسين والمدرّبين والمستقلين</span>
+
+    <h1 data-lang="en">Your website, live in <span>7 days</span> — built for how UAE clients actually search</h1>
+    <h1 data-lang="ar">موقعك الإلكتروني جاهز خلال <span>٧ أيام</span> — مصمم بالطريقة التي يبحث بها عملاء الإمارات فعليًا</h1>
+
+    <p class="sub" data-lang="en">No templates. No agency price tags. A fast, mobile-first site with WhatsApp built in — so people find you and reach you, instantly.</p>
+    <p class="sub" data-lang="ar">بدون قوالب جاهزة. بدون أسعار الوكالات الكبيرة. موقع سريع ومتوافق مع الجوال مزوّد بواتساب — ليجدك عملاؤك ويتواصلوا معك فورًا.</p>
+
+    <div class="btn-row">
+      <a href="#pricing" class="btn btn-primary" data-lang="en">See pricing</a>
+      <a href="#pricing" class="btn btn-primary" data-lang="ar">عرض الأسعار</a>
+      <a href="https://wa.me/971000000000" class="btn btn-ghost" data-lang="en">Book free consult</a>
+      <a href="https://wa.me/971000000000" class="btn btn-ghost" data-lang="ar">احجز استشارة مجانية</a>
+    </div>
+  </div>
+</section>
+<svg class="wave" viewBox="0 0 1200 60" preserveAspectRatio="none" style="background:var(--teal-deep);"><path d="M0,30 C300,60 600,0 900,30 C1050,45 1150,15 1200,30 L1200,60 L0,60 Z"></path></svg>
+
+<section class="showcase reveal">
+  <span class="showcase-eyebrow" data-lang="en">What we build</span>
+  <span class="showcase-eyebrow" data-lang="ar">ما نصنعه</span>
+  <h2 data-lang="en">Everything a client needs to find and reach you, in one place</h2>
+  <h2 data-lang="ar">كل ما يحتاجه عميلك ليجدك ويصل إليك، في مكان واحد</h2>
+  <div class="showcase-svg-wrap">
+    <svg viewBox="0 0 690 400" fill="none">
+      <!-- illustrated person: head + shoulders, sending the connections -->
+      <path d="M200 380C200 335 218 300 260 300C302 300 320 335 320 380Z" fill="#0D1B2A" opacity="0.9"/>
+      <circle cx="260" cy="255" r="38" fill="#0D1B2A" opacity="0.9"/>
+      <path d="M240 268C246 277 274 277 280 268" stroke="#EFE7D8" stroke-width="1.5" stroke-linecap="round" opacity="0.35" fill="none"/>
+
+      <!-- connection lines from head to floating badges -->
+      <line class="sc-line" x1="248" y1="222" x2="140" y2="90" stroke="#C9A961" stroke-width="1.5" opacity="0.6"/>
+      <line class="sc-line" x1="270" y1="218" x2="230" y2="55" stroke="#E0C078" stroke-width="1.5" opacity="0.5"/>
+      <line class="sc-line" x1="290" y1="222" x2="400" y2="55" stroke="#C9A961" stroke-width="1.5" opacity="0.5"/>
+      <line class="sc-line" x1="300" y1="235" x2="490" y2="95" stroke="#E0C078" stroke-width="1.5" opacity="0.6"/>
+
+      <!-- emission glow points around head -->
+      <circle class="sc-glow" cx="248" cy="222" r="3" fill="#E0C078"/>
+      <circle class="sc-glow" cx="270" cy="218" r="3" fill="#C9A961"/>
+      <circle class="sc-glow" cx="290" cy="222" r="3" fill="#E0C078"/>
+      <circle class="sc-glow" cx="300" cy="235" r="3" fill="#C9A961"/>
+
+      <!-- floating service badges -->
+      <g class="sc-badge sc-badge-1">
+        <rect x="90" y="55" width="100" height="42" rx="10" fill="var(--white)" stroke="rgba(13,27,42,0.12)"/>
+        <text x="140" y="80" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700" fill="#0D1B2A">Website</text>
+      </g>
+      <g class="sc-badge sc-badge-2">
+        <rect x="180" y="18" width="100" height="42" rx="10" fill="var(--white)" stroke="rgba(13,27,42,0.12)"/>
+        <text x="230" y="43" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700" fill="#0D1B2A">Mobile-ready</text>
+      </g>
+      <g class="sc-badge sc-badge-3">
+        <rect x="350" y="18" width="100" height="42" rx="10" fill="var(--white)" stroke="rgba(13,27,42,0.12)"/>
+        <text x="400" y="43" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700" fill="#0D1B2A">SEO Ready</text>
+      </g>
+      <g class="sc-badge sc-badge-4">
+        <rect x="440" y="60" width="100" height="42" rx="10" fill="var(--white)" stroke="rgba(13,27,42,0.12)"/>
+        <text x="490" y="85" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700" fill="#0D1B2A">WhatsApp</text>
+      </g>
+
+      <!-- illustrated person receiving the connection -->
+      <g>
+        <!-- shoulders/body -->
+        <path d="M545 380C545 340 560 310 595 310C630 310 645 340 645 380Z" fill="#0D1B2A" opacity="0.9"/>
+        <!-- head -->
+        <circle cx="595" cy="270" r="32" fill="#0D1B2A" opacity="0.9"/>
+        <!-- simple face indication: subtle jaw curve, no specific identity -->
+        <path d="M578 282C583 290 607 290 612 282" stroke="#EFE7D8" stroke-width="1.5" stroke-linecap="round" opacity="0.35" fill="none"/>
+
+        <!-- phone in hand -->
+        <rect x="560" y="300" width="26" height="46" rx="5" fill="#16283D" stroke="#C9A961" stroke-width="1"/>
+        <rect x="564" y="306" width="18" height="30" rx="1" fill="#0D1B2A"/>
+        <circle class="sc-glow" cx="573" cy="321" r="2.5" fill="#E0C078"/>
+
+        <!-- connection line arriving at the phone -->
+        <line class="sc-line" x1="490" y1="102" x2="573" y2="308" stroke="#C9A961" stroke-width="1.5" opacity="0.55"/>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<section class="problem reveal">
+  <div class="problem-inner">
+    <h2 data-lang="en">People check before they book</h2>
+    <h2 data-lang="ar">الناس يتحققون قبل أن يحجزوا</h2>
+    <p data-lang="en">You're good at what you do — but if someone searches your name and finds nothing, or an outdated Instagram bio pretending to be a website, you've already lost the booking to someone with a worse offer and a better first impression.</p>
+    <p data-lang="ar">أنت بارع فيما تفعله — لكن إذا بحث أحدهم عن اسمك ولم يجد شيئًا، أو وجد سيرة إنستغرام قديمة تتظاهر بأنها موقع، فقد خسرت الحجز بالفعل لصالح شخص آخر عرضه أضعف لكن انطباعه الأول أفضل.</p>
+  </div>
+</section>
+
+<section class="offer reveal">
+  <div class="offer-inner">
+    <div class="offer-head">
+      <h2 data-lang="en">What you get</h2>
+      <h2 data-lang="ar">ماذا ستحصل عليه</h2>
+      <p data-lang="en">Everything a solo professional actually needs — nothing you'll pay for and never use.</p>
+      <p data-lang="ar">كل ما يحتاجه المحترف المستقل فعليًا — بدون أي شيء تدفع ثمنه ولا تستخدمه.</p>
+    </div>
+    <div class="feature-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+        <h3 data-lang="en">Custom-coded, not templated</h3>
+        <h3 data-lang="ar">مصمم برمجيًا، لا قالب جاهز</h3>
+        <p data-lang="en">Up to 5 pages, built to look like you — not like a thousand other sites on the same builder.</p>
+        <p data-lang="ar">حتى ٥ صفحات، مصممة لتعكس هويتك — لا كموقع من آلاف المواقع على نفس المنصة.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M17 2H7C5.9 2 5 2.9 5 4V20C5 21.1 5.9 22 7 22H17C18.1 22 19 21.1 19 20V4C19 2.9 18.1 2 17 2Z" stroke="currentColor" stroke-width="2"/><path d="M11 18H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3 data-lang="en">WhatsApp built in</h3>
+        <h3 data-lang="ar">واتساب مدمج</h3>
+        <p data-lang="en">A click-to-chat button, because that's how your clients actually want to reach you.</p>
+        <p data-lang="ar">زر تواصل فوري، لأن هذه هي الطريقة التي يفضلها عملاؤك للتواصل معك.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3 data-lang="en">Built to be found</h3>
+        <h3 data-lang="ar">مصمم ليتم إيجاده</h3>
+        <p data-lang="en">Basic SEO from day one, so people searching your service actually land on your page.</p>
+        <p data-lang="ar">تحسين أساسي لمحركات البحث من اليوم الأول، ليصل إليك من يبحث عن خدماتك.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="spotlight reveal" id="spotlight-demo">
+  <div class="spotlight-grid"></div>
+    <div class="star" style="top:43%;left:21%;width:1.6px;height:1.6px;animation-duration:2.3s;animation-delay:2.9s;opacity:0.45;"></div>
+    <div class="star" style="top:76%;left:9%;width:2.3px;height:2.3px;animation-duration:2.7s;animation-delay:0.3s;opacity:0.61;"></div>
+    <div class="star" style="top:32%;left:13%;width:1.8px;height:1.8px;animation-duration:2.3s;animation-delay:2.0s;opacity:0.87;"></div>
+    <div class="star" style="top:82%;left:82%;width:1.8px;height:1.8px;animation-duration:2.3s;animation-delay:2.0s;opacity:0.42;"></div>
+    <div class="star" style="top:30%;left:7%;width:1.8px;height:1.8px;animation-duration:2.5s;animation-delay:1.5s;opacity:0.67;"></div>
+    <div class="star" style="top:75%;left:41%;width:1.8px;height:1.8px;animation-duration:3.8s;animation-delay:0.4s;opacity:0.69;"></div>
+    <div class="star" style="top:26%;left:49%;width:1.1px;height:1.1px;animation-duration:3.8s;animation-delay:2.0s;opacity:0.71;"></div>
+    <div class="star" style="top:65%;left:89%;width:1.7px;height:1.7px;animation-duration:4.0s;animation-delay:1.6s;opacity:0.86;"></div>
+    <div class="star" style="top:48%;left:40%;width:1.3px;height:1.3px;animation-duration:2.6s;animation-delay:2.7s;opacity:0.44;"></div>
+    <div class="star" style="top:40%;left:69%;width:1.7px;height:1.7px;animation-duration:3.0s;animation-delay:1.6s;opacity:0.7;"></div>
+    <div class="star" style="top:11%;left:17%;width:1.7px;height:1.7px;animation-duration:2.6s;animation-delay:1.2s;opacity:0.87;"></div>
+    <div class="star" style="top:55%;left:7%;width:2.3px;height:2.3px;animation-duration:2.4s;animation-delay:2.0s;opacity:0.79;"></div>
+    <div class="star" style="top:42%;left:45%;width:2.0px;height:2.0px;animation-duration:3.6s;animation-delay:2.0s;opacity:0.63;"></div>
+    <div class="star" style="top:13%;left:36%;width:1.7px;height:1.7px;animation-duration:3.7s;animation-delay:0.2s;opacity:0.75;"></div>
+    <div class="star" style="top:84%;left:75%;width:2.4px;height:2.4px;animation-duration:4.1s;animation-delay:1.0s;opacity:0.59;"></div>
+    <div class="star" style="top:87%;left:46%;width:1.0px;height:1.0px;animation-duration:3.3s;animation-delay:0.6s;opacity:0.46;"></div>
+    <div class="star" style="top:9%;left:29%;width:2.1px;height:2.1px;animation-duration:2.5s;animation-delay:0.9s;opacity:0.6;"></div>
+    <div class="star" style="top:65%;left:12%;width:1.2px;height:1.2px;animation-duration:3.1s;animation-delay:1.0s;opacity:0.47;"></div>
+    <div class="star" style="top:57%;left:72%;width:1.4px;height:1.4px;animation-duration:3.2s;animation-delay:1.3s;opacity:0.84;"></div>
+    <div class="star" style="top:31%;left:21%;width:1.1px;height:1.1px;animation-duration:2.5s;animation-delay:2.3s;opacity:0.41;"></div>
+
+  <div class="spotlight-glow"></div>
+  <div class="spotlight-inner">
+    <span class="spotlight-eyebrow" data-lang="en">A closer look</span>
+    <span class="spotlight-eyebrow" data-lang="ar">لمحة أقرب</span>
+    <h2 data-lang="en">Move your cursor. See what's underneath.</h2>
+    <h2 data-lang="ar">حرّك المؤشر. اكتشف ما يختبئ خلفه.</h2>
+    <p data-lang="en">This is the kind of detail your visitors will notice — quiet, deliberate motion that makes a site feel built, not templated.</p>
+    <p data-lang="ar">هذا هو نوع التفاصيل التي سيلاحظها زوارك — حركة هادئة ومدروسة تجعل الموقع يبدو مصمّمًا بعناية، لا مجرد قالب جاهز.</p>
+  </div>
+</section>
+
+<div id="pricing"></div>
+<section class="pricing reveal">
+  <div class="code-bg">
+    <div class="code-col left">
+      <pre><span class="typed-line l1">&lt;<span class="tag">section</span> <span class="attr">class</span>=<span class="str">"your-website"</span>&gt;</span>
+<span class="typed-line l2">  &lt;<span class="tag">h1</span>&gt;Built for you&lt;/<span class="tag">h1</span>&gt;</span>
+<span class="typed-line l3">  &lt;<span class="tag">nav</span>&gt;</span>
+<span class="typed-line l4">    Home · Services</span>
+<span class="typed-line l5">  &lt;/<span class="tag">nav</span>&gt;</span>
+<span class="typed-line l6">&lt;/<span class="tag">section</span>&gt;</span></pre>
+    </div>
+    <div class="code-col right">
+      <pre><span class="typed-line r1">&lt;<span class="tag">button</span> <span class="attr">href</span>=<span class="str">"wa.me"</span>&gt;</span>
+<span class="typed-line r2">  Book now</span>
+<span class="typed-line r3">&lt;/<span class="tag">button</span>&gt;</span>
+<span class="typed-line r4">&lt;<span class="tag">seo</span> <span class="attr">ready</span>=<span class="str">"true"</span> /&gt;</span>
+<span class="typed-line r5">&lt;!-- delivered in --&gt;</span>
+<span class="typed-line r6">&lt;!-- 7 days --&gt;</span></pre>
+    </div>
+  </div>
+  <div class="pricing-inner">
+    <h2 data-lang="en">Simple, upfront pricing</h2>
+    <h2 data-lang="ar">أسعار بسيطة وواضحة</h2>
+    <p data-lang="en">Founding-client pricing — limited spots at this rate.</p>
+    <p data-lang="ar">سعر خاص للعملاء الأوائل — عدد محدود بهذا السعر.</p>
+
+    <div class="price-card">
+      <div class="price-card-code">
+        <pre><span class="typed-line pl1">&lt;<span class="tag">html</span> <span class="attr">lang</span>=<span class="str">"en"</span>&gt;</span>
+<span class="typed-line pl2">  &lt;<span class="tag">price</span>&gt;1,500 AED&lt;/<span class="tag">price</span>&gt;</span>
+<span class="typed-line pl3">  &lt;<span class="tag">delivery</span>&gt;7 days&lt;/<span class="tag">delivery</span>&gt;</span>
+<span class="typed-line pl4">  &lt;<span class="tag">status</span>&gt;founding&lt;/<span class="tag">status</span>&gt;</span>
+<span class="typed-line pl5">&lt;/<span class="tag">html</span>&gt;</span>
+<span class="typed-line pl6">&lt;!-- yours, live soon --&gt;</span></pre>
+      </div>
+      <div class="price-tag">AED 1,500</div>
+      <div class="price-note" data-lang="en">one-time build fee</div>
+      <div class="price-note" data-lang="ar">رسوم إنشاء لمرة واحدة</div>
+
+      <ul class="price-list">
+        <li data-lang="en">Custom site, up to 5 pages</li>
+        <li data-lang="ar">موقع مخصص، حتى ٥ صفحات</li>
+        <li data-lang="en">Mobile-first, fast-loading</li>
+        <li data-lang="ar">متوافق مع الجوال وسريع التحميل</li>
+        <li data-lang="en">WhatsApp click-to-chat</li>
+        <li data-lang="ar">زر تواصل واتساب فوري</li>
+        <li data-lang="en">Basic on-page SEO</li>
+        <li data-lang="ar">تحسين أساسي لمحركات البحث</li>
+        <li data-lang="en">Delivered in 7 business days</li>
+        <li data-lang="ar">التسليم خلال ٧ أيام عمل</li>
+      </ul>
+
+      <a href="https://wa.me/971000000000" class="btn btn-primary" data-lang="en" style="width:100%;justify-content:center;">Book your free consult</a>
+      <a href="https://wa.me/971000000000" class="btn btn-primary" data-lang="ar" style="width:100%;justify-content:center;">احجز استشارتك المجانية</a>
+    </div>
+
+    <p class="maintenance" data-lang="en">Optional: AED 79/month for hosting, security & small updates.</p>
+    <p class="maintenance" data-lang="ar">اختياري: ٧٩ درهمًا شهريًا للاستضافة والأمان والتحديثات البسيطة.</p>
+  </div>
+</section>
+
+<section class="cta-final reveal">
+  <h2 data-lang="en">What do people find when they search your name?</h2>
+  <h2 data-lang="ar">ماذا يجد الناس عندما يبحثون عن اسمك؟</h2>
+  <p data-lang="en">Let's make sure it's something you're proud of.</p>
+  <p data-lang="ar">لنتأكد من أنه شيء تفتخر به.</p>
+  <a href="https://wa.me/971000000000" class="btn btn-primary" data-lang="en">Start the conversation</a>
+  <a href="https://wa.me/971000000000" class="btn btn-primary" data-lang="ar">ابدأ المحادثة</a>
+</section>
+
+<footer>
+  <div class="logo" data-lang="en">Gulfline Digital</div>
+  <div class="logo" data-lang="ar">جلف لاين ديجيتال</div>
+  <p data-lang="en">Websites for tutors, trainers & freelancers across the UAE.</p>
+  <p data-lang="ar">مواقع إلكترونية للمدرّسين والمدرّبين والمستقلين في جميع أنحاء الإمارات.</p>
+</footer>
+
+<a href="https://wa.me/971000000000" class="wa-float" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12C2 13.85 2.5 15.58 3.38 17.06L2 22L7.11 20.64C8.53 21.42 10.21 21.9 12 21.9C17.52 21.9 22 17.42 22 11.9C22 6.38 17.52 2 12 2ZM12 20.1C10.42 20.1 8.95 19.66 7.7 18.9L7.38 18.7L4.3 19.5L5.12 16.5L4.9 16.16C4.06 14.86 3.6 13.35 3.6 11.8C3.6 7.4 7.4 3.8 12 3.8C16.6 3.8 20.2 7.4 20.2 11.8C20.2 16.4 16.6 20.1 12 20.1Z"/><path d="M17.2 14.4C16.95 14.28 15.72 13.68 15.5 13.6C15.28 13.52 15.12 13.48 14.96 13.72C14.8 13.96 14.32 14.52 14.18 14.68C14.04 14.84 13.9 14.86 13.65 14.74C13.4 14.62 12.6 14.36 11.65 13.52C10.9 12.86 10.4 12.04 10.26 11.8C10.12 11.56 10.24 11.44 10.36 11.32C10.47 11.21 10.6 11.03 10.72 10.89C10.84 10.75 10.88 10.65 10.96 10.49C11.04 10.33 11 10.19 10.94 10.07C10.88 9.95 10.4 8.71 10.2 8.21C10 7.73 9.8 7.79 9.65 7.78C9.51 7.78 9.35 7.78 9.19 7.78C9.03 7.78 8.77 7.84 8.55 8.08C8.33 8.32 7.71 8.9 7.71 10.14C7.71 11.38 8.57 12.58 8.69 12.74C8.81 12.9 10.4 15.34 12.82 16.44C13.4 16.7 13.85 16.85 14.2 16.97C14.78 17.15 15.31 17.13 15.73 17.06C16.2 16.99 17.17 16.47 17.37 15.9C17.57 15.33 17.57 14.85 17.51 14.75C17.45 14.65 17.29 14.59 17.2 14.4Z"/></svg>
+</a>
+
+<script>
+// Scroll-triggered reveal
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('in-view');
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.15});
+revealEls.forEach(el=>observer.observe(el));
+
+// Subtle parallax on hero orbs (mouse move, desktop only)
+const heroBg = document.querySelector('.hero-bg');
+if(heroBg && window.matchMedia('(hover:hover)').matches){
+  document.querySelector('.hero').addEventListener('mousemove',(e)=>{
+    const x = (e.clientX / window.innerWidth - 0.5) * 20;
+    const y = (e.clientY / window.innerHeight - 0.5) * 20;
+    heroBg.style.transform = `translate(${x}px, ${y}px)`;
+    heroBg.style.transition = 'transform .3s ease-out';
+  });
+}
+
+// Cursor spotlight glow tracking
+const spotlightSection = document.getElementById('spotlight-demo');
+if(spotlightSection){
+  spotlightSection.addEventListener('mousemove',(e)=>{
+    const rect = spotlightSection.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    spotlightSection.style.setProperty('--mx', x + '%');
+    spotlightSection.style.setProperty('--my', y + '%');
+  });
+}
+
+// Loop the code-typing background animations
+function restartTypedLines(selector){
+  document.querySelectorAll(selector).forEach(pre=>{
+    pre.querySelectorAll('.typed-line').forEach(line=>{
+      line.style.animation = 'none';
+      void line.offsetWidth; // reflow to restart animation
+      line.style.animation = '';
+    });
+  });
+}
+setInterval(()=>restartTypedLines('.code-bg pre'), 9800);
+setInterval(()=>restartTypedLines('.price-card-code pre'), 6600);
+
+function setLang(lang){
+  const html = document.documentElement;
+  if(lang === 'ar'){
+    html.setAttribute('lang','ar');
+    html.setAttribute('dir','rtl');
+    document.getElementById('btn-ar').classList.add('active');
+    document.getElementById('btn-en').classList.remove('active');
+  } else {
+    html.setAttribute('lang','en');
+    html.setAttribute('dir','ltr');
+    document.getElementById('btn-en').classList.add('active');
+    document.getElementById('btn-ar').classList.remove('active');
+  }
+}
+</script>
+
+</body>
+</html>
