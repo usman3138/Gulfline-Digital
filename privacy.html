@@ -59,9 +59,9 @@
   h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-0.02em;}
   [dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] h3,[dir="rtl"] .display{font-family:'Noto Kufi Arabic',sans-serif;letter-spacing:0;}
   a{text-decoration:none;color:var(--coral);}
-  html [data-lang="ar"]{display:none;}
-  html[dir="rtl"] [data-lang="en"]{display:none;}
-  html[dir="rtl"] [data-lang="ar"]{display:block;}
+  html [data-lang="ar"]{display:none !important;}
+  html[dir="rtl"] [data-lang="en"]{display:none !important;}
+  html[dir="rtl"] [data-lang="ar"]{display:block !important;}
 
   header{position:sticky;top:0;z-index:50;background:rgba(249,246,239,0.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(13,27,42,0.08);overflow:hidden;}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;max-width:1080px;margin:0 auto;position:relative;z-index:1;}

@@ -260,14 +260,6 @@
   .btn-ghost:hover{background:rgba(255,253,249,0.08);}
   .btn-paypal{background:#0070BA;color:#fff;margin-top:12px;}
   .btn-paypal:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,112,186,0.35);}
-  .pay-note{font-size:0.8rem;color:rgba(255,253,249,0.55);margin-top:12px;text-align:center;line-height:1.5;}
-  .addon-row{background:rgba(255,253,249,0.06);border:1px solid rgba(255,253,249,0.15);border-radius:12px;padding:16px;margin:0 auto 20px;max-width:340px;text-align:start;}
-  .addon-label{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:0.9rem;color:rgba(255,253,249,0.9);}
-  .addon-label input{margin-top:3px;width:18px;height:18px;accent-color:var(--coral);flex-shrink:0;cursor:pointer;}
-  .addon-label strong{color:var(--coral-bright);}
-  html[dir="rtl"] .addon-label{flex-direction:row-reverse;}
-  .total-row{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.3rem;color:var(--coral-bright);margin-bottom:20px;display:none;}
-  .total-row.show{display:block;}
 
   /* Problem section */
   .problem{padding:80px 24px;background:var(--sand-light);}
@@ -422,8 +414,8 @@
   @media (prefers-reduced-motion: reduce){
     .spotlight-glow{transition:none;background:radial-gradient(600px circle at 50% 50%, rgba(201,169,97,0.14), transparent 65%);}
   }
-  html [data-lang="ar"]{display:none;}
-  html[dir="rtl"] [data-lang="en"]{display:none;}
+  html [data-lang="ar"]{display:none !important;}
+  html[dir="rtl"] [data-lang="en"]{display:none !important;}
 
   /* Hand + network illustration section */
   .showcase{padding:70px 24px 90px;background:var(--sand-light);text-align:center;overflow:hidden;}
@@ -444,7 +436,7 @@
   @media (prefers-reduced-motion: reduce){
     .sc-line,.sc-badge,.sc-glow{animation:none;}
   }
-  html[dir="rtl"] [data-lang="ar"]{display:block;}
+  html[dir="rtl"] [data-lang="ar"]{display:block !important;}
   html[dir="rtl"] .btn-row{flex-direction:row-reverse;justify-content:flex-end;}
   html[dir="rtl"] .price-list li{flex-direction:row-reverse;}
 
@@ -806,24 +798,8 @@
       <a href="https://wa.me/971563476686" class="btn btn-primary" data-lang="en" style="width:100%;justify-content:center;">Book your free consult</a>
       <a href="https://wa.me/971563476686" class="btn btn-primary" data-lang="ar" style="width:100%;justify-content:center;">احجز استشارتك المجانية</a>
 
-      <div class="addon-row">
-        <label class="addon-label">
-          <input type="checkbox" id="addon-social" onchange="updateOrderTotal()">
-          <span data-lang="en">Add social media setup — Facebook, Instagram, X &amp; TikTok, with branded images and SEO-optimized bios — <strong>+AED 500</strong></span>
-          <span data-lang="ar">إضافة إعداد حسابات التواصل الاجتماعي — فيسبوك، إنستغرام، X وتيك توك، مع صور مصممة ونبذات محسّنة لمحركات البحث — <strong>+٥٠٠ درهم</strong></span>
-        </label>
-      </div>
-
-      <div class="total-row" id="total-row">
-        <span data-lang="en">Total: <span id="total-amount-en">AED 2,000</span></span>
-        <span data-lang="ar">الإجمالي: <span id="total-amount-ar">٢٠٠٠ درهم</span></span>
-      </div>
-
-      <a href="https://paypal.me/usman7767/408USD?locale.x=en_US&country.x=AE" target="_blank" rel="noopener noreferrer" class="btn btn-paypal" data-lang="en" style="width:100%;justify-content:center;">Order &amp; pay now</a>
-      <a href="https://paypal.me/usman7767/408USD?locale.x=en_US&country.x=AE" target="_blank" rel="noopener noreferrer" class="btn btn-paypal" data-lang="ar" style="width:100%;justify-content:center;">اطلب وادفع الآن</a>
-
-      <p class="pay-note" data-lang="en">Charged in USD via PayPal (~$<span id="pay-note-usd-en">408</span>, based on the AED-USD exchange rate) — card or PayPal balance accepted. After payment, message us your project details on WhatsApp so we can start.</p>
-      <p class="pay-note" data-lang="ar">يُحصّل المبلغ بالدولار الأمريكي عبر PayPal (حوالي <span id="pay-note-usd-ar">٤٠٨</span>$، حسب سعر صرف الدرهم مقابل الدولار) — بالبطاقة أو برصيد PayPal. بعد الدفع، أرسل لنا تفاصيل مشروعك عبر واتساب لنبدأ العمل.</p>
+      <a href="checkout.html" class="btn btn-paypal" data-lang="en" style="width:100%;justify-content:center;">Order &amp; pay online</a>
+      <a href="checkout.html" class="btn btn-paypal" data-lang="ar" style="width:100%;justify-content:center;">اطلب وادفع أونلاين</a>
     </div>
 
     <p class="maintenance" data-lang="en">Optional: AED 79/month for hosting, security & small updates.</p>
@@ -960,29 +936,6 @@ function setLang(lang){
   }
 }
 
-const BASE_PRICE = 1500;
-const ADDON_PRICE = 500;
-// PayPal account isn't enabled to receive AED, so PayPal is charged in USD.
-// AED is pegged to USD at a fixed rate (UAE Central Bank, since 1997) - safe to hardcode.
-const AED_PER_USD = 3.6725;
-function toArabicDigits(n){
-  const map = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
-  return String(n).replace(/[0-9]/g, d => map[+d]);
-}
-function updateOrderTotal(){
-  const checked = document.getElementById('addon-social').checked;
-  const total = checked ? BASE_PRICE + ADDON_PRICE : BASE_PRICE;
-  const totalUsd = Math.round(total / AED_PER_USD);
-  const totalRow = document.getElementById('total-row');
-  totalRow.classList.toggle('show', checked);
-  document.getElementById('total-amount-en').textContent = 'AED ' + total.toLocaleString('en-US');
-  document.getElementById('total-amount-ar').textContent = toArabicDigits(total) + ' درهم';
-  document.getElementById('pay-note-usd-en').textContent = totalUsd;
-  document.getElementById('pay-note-usd-ar').textContent = toArabicDigits(totalUsd);
-  document.querySelectorAll('.btn-paypal').forEach(a => {
-    a.href = 'https://paypal.me/usman7767/' + totalUsd + 'USD?locale.x=en_US&country.x=AE';
-  });
-}
 </script>
 
 </body>
