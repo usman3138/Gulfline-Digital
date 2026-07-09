@@ -74,7 +74,7 @@
       "name": "How much does it cost?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A flat AED 1,500 one-time build fee for a custom site of up to 5 pages. Optional hosting, security and small updates are AED 79/month."
+        "text": "A flat AED 1,500 one-time build fee for a custom site of up to 5 pages. An optional social media setup (Facebook, Instagram, X and TikTok, with branded images and SEO-optimized bios) is available for AED 500 more. Optional hosting, security and small updates are AED 79/month."
       }
     },
     {
@@ -261,6 +261,13 @@
   .btn-paypal{background:#0070BA;color:#fff;margin-top:12px;}
   .btn-paypal:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,112,186,0.35);}
   .pay-note{font-size:0.8rem;color:rgba(255,253,249,0.55);margin-top:12px;text-align:center;line-height:1.5;}
+  .addon-row{background:rgba(255,253,249,0.06);border:1px solid rgba(255,253,249,0.15);border-radius:12px;padding:16px;margin:0 auto 20px;max-width:340px;text-align:start;}
+  .addon-label{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:0.9rem;color:rgba(255,253,249,0.9);}
+  .addon-label input{margin-top:3px;width:18px;height:18px;accent-color:var(--coral);flex-shrink:0;cursor:pointer;}
+  .addon-label strong{color:var(--coral-bright);}
+  html[dir="rtl"] .addon-label{flex-direction:row-reverse;}
+  .total-row{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.3rem;color:var(--coral-bright);margin-bottom:20px;display:none;}
+  .total-row.show{display:block;}
 
   /* Problem section */
   .problem{padding:80px 24px;background:var(--sand-light);}
@@ -796,6 +803,19 @@
         <li data-lang="ar">التسليم خلال ٧ أيام عمل</li>
       </ul>
 
+      <div class="addon-row">
+        <label class="addon-label">
+          <input type="checkbox" id="addon-social" onchange="updateOrderTotal()">
+          <span data-lang="en">Add social media setup — Facebook, Instagram, X &amp; TikTok, with branded images and SEO-optimized bios — <strong>+AED 500</strong></span>
+          <span data-lang="ar">إضافة إعداد حسابات التواصل الاجتماعي — فيسبوك، إنستغرام، X وتيك توك، مع صور مصممة ونبذات محسّنة لمحركات البحث — <strong>+٥٠٠ درهم</strong></span>
+        </label>
+      </div>
+
+      <div class="total-row" id="total-row">
+        <span data-lang="en">Total: <span id="total-amount-en">AED 2,000</span></span>
+        <span data-lang="ar">الإجمالي: <span id="total-amount-ar">٢٠٠٠ درهم</span></span>
+      </div>
+
       <a href="https://wa.me/971563476686" class="btn btn-primary" data-lang="en" style="width:100%;justify-content:center;">Book your free consult</a>
       <a href="https://wa.me/971563476686" class="btn btn-primary" data-lang="ar" style="width:100%;justify-content:center;">احجز استشارتك المجانية</a>
 
@@ -828,8 +848,8 @@
 
     <details class="faq-item">
       <summary><span data-lang="en">How much does it cost?</span><span data-lang="ar">كم تكلفة الموقع؟</span></summary>
-      <p class="faq-a" data-lang="en">A flat AED 1,500 one-time build fee for a custom site of up to 5 pages. Optional hosting, security and small updates are AED 79/month.</p>
-      <p class="faq-a" data-lang="ar">رسوم إنشاء ثابتة قدرها ١٥٠٠ درهم لمرة واحدة لموقع مخصص يصل إلى ٥ صفحات. الاستضافة والأمان والتحديثات البسيطة اختيارية بـ٧٩ درهمًا شهريًا.</p>
+      <p class="faq-a" data-lang="en">A flat AED 1,500 one-time build fee for a custom site of up to 5 pages. An optional social media setup (Facebook, Instagram, X &amp; TikTok, with branded images and SEO-optimized bios) is available for AED 500 more. Optional hosting, security and small updates are AED 79/month.</p>
+      <p class="faq-a" data-lang="ar">رسوم إنشاء ثابتة قدرها ١٥٠٠ درهم لمرة واحدة لموقع مخصص يصل إلى ٥ صفحات. تتوفر إضافة اختيارية لإعداد حسابات التواصل الاجتماعي (فيسبوك، إنستغرام، X وتيك توك، مع صور مصممة ونبذات محسّنة) مقابل ٥٠٠ درهم إضافية. الاستضافة والأمان والتحديثات البسيطة اختيارية بـ٧٩ درهمًا شهريًا.</p>
     </details>
 
     <details class="faq-item">
@@ -938,6 +958,24 @@ function setLang(lang){
     document.getElementById('btn-en').classList.add('active');
     document.getElementById('btn-ar').classList.remove('active');
   }
+}
+
+const BASE_PRICE = 1500;
+const ADDON_PRICE = 500;
+function toArabicDigits(n){
+  const map = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+  return String(n).replace(/[0-9]/g, d => map[+d]);
+}
+function updateOrderTotal(){
+  const checked = document.getElementById('addon-social').checked;
+  const total = checked ? BASE_PRICE + ADDON_PRICE : BASE_PRICE;
+  const totalRow = document.getElementById('total-row');
+  totalRow.classList.toggle('show', checked);
+  document.getElementById('total-amount-en').textContent = 'AED ' + total.toLocaleString('en-US');
+  document.getElementById('total-amount-ar').textContent = toArabicDigits(total) + ' درهم';
+  document.querySelectorAll('.btn-paypal').forEach(a => {
+    a.href = 'https://paypal.me/usman7767/' + total + 'AED?locale.x=en_US&country.x=AE';
+  });
 }
 </script>
 
