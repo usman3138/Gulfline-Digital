@@ -80,7 +80,14 @@
   .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;font-weight:600;font-size:1rem;cursor:pointer;border:none;transition:transform .15s ease, box-shadow .15s ease;}
   .btn-paypal{background:var(--paypal-blue);color:#fff;}
   .btn-paypal:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,112,186,0.35);}
+  .btn-primary{background:var(--coral);color:var(--white);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,169,97,0.35);}
   .pay-note{font-size:0.8rem;color:#5a6a6c;margin-top:14px;text-align:center;line-height:1.5;}
+
+  .quote-wrap{max-width:920px;margin:0 auto;padding:0 24px 80px;}
+  .quote-box{background:var(--teal-deep);color:var(--white);border-radius:16px;padding:32px;text-align:center;}
+  .quote-box h2{color:var(--white);margin-bottom:12px;}
+  .quote-box p{color:rgba(255,253,249,0.75);max-width:520px;margin:0 auto 20px;}
 
   html[dir="rtl"] .cart-item-price{text-align:start;}
   html[dir="rtl"] .qty-stepper{direction:ltr;}
@@ -181,6 +188,46 @@
       </div>
     </div>
 
+    <div class="cart-item">
+      <div class="cart-item-info">
+        <h3 data-lang="en">Advanced SEO Setup</h3>
+        <h3 data-lang="ar">إعداد SEO متقدم</h3>
+        <p data-lang="en">One-time setup: Google Business Profile, schema markup, and deeper keyword optimization beyond the basic SEO already included.</p>
+        <p data-lang="ar">إعداد لمرة واحدة: ملف Google Business Profile، ترميز Schema، وتحسين أعمق للكلمات المفتاحية بالإضافة إلى تحسين محركات البحث الأساسي المشمول بالفعل.</p>
+      </div>
+      <div class="cart-item-price" data-lang="en">AED 500 each</div>
+      <div class="cart-item-price" data-lang="ar">٥٠٠ درهم للواحد</div>
+      <div class="cart-item-controls">
+        <div class="qty-stepper">
+          <button type="button" onclick="changeQty('seo',-1)" aria-label="Decrease">−</button>
+          <span id="qty-seo">0</span>
+          <button type="button" onclick="changeQty('seo',1)" aria-label="Increase">+</button>
+        </div>
+        <div class="cart-item-total" id="line-total-seo-en" data-lang="en">AED 0</div>
+        <div class="cart-item-total" id="line-total-seo-ar" data-lang="ar">٠ درهم</div>
+      </div>
+    </div>
+
+    <div class="cart-item">
+      <div class="cart-item-info">
+        <h3 data-lang="en">Monthly SEO Check-in</h3>
+        <h3 data-lang="ar">متابعة شهرية لمحركات البحث</h3>
+        <p data-lang="en">Monthly ranking check and minor on-page tweaks. Not a full SEO campaign — ongoing content or link building isn't included. Quantity = number of months prepaid now; renews by arrangement afterward.</p>
+        <p data-lang="ar">فحص شهري للترتيب في نتائج البحث وتعديلات بسيطة على الصفحة. ليست حملة SEO كاملة — لا تشمل إنشاء محتوى أو بناء روابط مستمر. الكمية = عدد الأشهر المدفوعة الآن؛ يتم التجديد لاحقًا بالاتفاق.</p>
+      </div>
+      <div class="cart-item-price" data-lang="en">AED 500/month</div>
+      <div class="cart-item-price" data-lang="ar">٥٠٠ درهم شهريًا</div>
+      <div class="cart-item-controls">
+        <div class="qty-stepper">
+          <button type="button" onclick="changeQty('seoMonthly',-1)" aria-label="Decrease">−</button>
+          <span id="qty-seoMonthly">0</span>
+          <button type="button" onclick="changeQty('seoMonthly',1)" aria-label="Increase">+</button>
+        </div>
+        <div class="cart-item-total" id="line-total-seoMonthly-en" data-lang="en">AED 0</div>
+        <div class="cart-item-total" id="line-total-seoMonthly-ar" data-lang="ar">٠ درهم</div>
+      </div>
+    </div>
+
     <div class="cart-subtotal">
       <span data-lang="en">Subtotal</span>
       <span data-lang="ar">المجموع الفرعي</span>
@@ -226,6 +273,17 @@
 
 </div>
 
+<div class="quote-wrap">
+  <div class="quote-box">
+    <h2 data-lang="en">Social Media Advertising</h2>
+    <h2 data-lang="ar">إعلانات التواصل الاجتماعي</h2>
+    <p data-lang="en">Facebook, Instagram &amp; TikTok ad management — from AED 500 to AED 5,000/month depending on your ad budget and goals. Pricing depends on your situation, so this one's a conversation, not a checkbox.</p>
+    <p data-lang="ar">إدارة إعلانات فيسبوك، إنستغرام وتيك توك — من ٥٠٠ إلى ٥٠٠٠ درهم شهريًا حسب ميزانية إعلاناتك وأهدافك. يعتمد السعر على وضعك، لذا هذه محادثة، لا مربع اختيار.</p>
+    <a href="https://wa.me/971563476686?text=Hi!%20I%27m%20interested%20in%20social%20media%20advertising%20management." class="btn btn-primary" data-lang="en">Get a quote on WhatsApp</a>
+    <a href="https://wa.me/971563476686?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D9%86%D8%A7%20%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D8%A5%D8%AF%D8%A7%D8%B1%D8%A9%20%D8%A5%D8%B9%D9%84%D8%A7%D9%86%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D8%A7%D9%84%D8%A7%D8%AC%D8%AA%D9%85%D8%A7%D8%B9%D9%8A." class="btn btn-primary" data-lang="ar">احصل على عرض سعر عبر واتساب</a>
+  </div>
+</div>
+
 <footer>
   <div class="logo" data-lang="en">Gulfline Digital</div>
   <div class="logo" data-lang="ar">جلف لاين ديجيتال</div>
@@ -261,14 +319,18 @@ function setLang(lang){
   }
 }
 
-const WEBSITE_PRICE = 1500;
-const ADDON_PRICE = 500;
 // PayPal account isn't enabled to receive AED, so PayPal is charged in USD.
 // AED is pegged to USD at a fixed rate (UAE Central Bank, since 1997) - safe to hardcode.
 const AED_PER_USD = 3.6725;
 const PAYPAL_USER = 'usman7767';
 
-let qty = { website: 1, addon: 0 };
+const ITEMS = {
+  website:     { price: 1500, min: 1 },
+  addon:       { price: 500,  min: 0 },
+  seo:         { price: 500,  min: 0 },
+  seoMonthly:  { price: 500,  min: 0 },
+};
+let qty = { website: 1, addon: 0, seo: 0, seoMonthly: 0 };
 
 function toArabicDigits(n){
   const map = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
@@ -278,23 +340,22 @@ function fmtAed(n){ return 'AED ' + n.toLocaleString('en-US'); }
 function fmtAedAr(n){ return toArabicDigits(n) + ' درهم'; }
 
 function changeQty(item, delta){
-  const min = item === 'website' ? 1 : 0;
   const max = 10;
-  qty[item] = Math.min(max, Math.max(min, qty[item] + delta));
+  qty[item] = Math.min(max, Math.max(ITEMS[item].min, qty[item] + delta));
   document.getElementById('qty-' + item).textContent = qty[item];
   recalc();
 }
 
 function recalc(){
-  const lineWebsite = qty.website * WEBSITE_PRICE;
-  const lineAddon = qty.addon * ADDON_PRICE;
-  const subtotal = lineWebsite + lineAddon;
+  let subtotal = 0;
+  for (const key in ITEMS) {
+    const lineTotal = qty[key] * ITEMS[key].price;
+    subtotal += lineTotal;
+    document.getElementById('line-total-' + key + '-en').textContent = fmtAed(lineTotal);
+    document.getElementById('line-total-' + key + '-ar').textContent = fmtAedAr(lineTotal);
+  }
   const totalUsd = Math.round(subtotal / AED_PER_USD);
 
-  document.getElementById('line-total-website-en').textContent = fmtAed(lineWebsite);
-  document.getElementById('line-total-website-ar').textContent = fmtAedAr(lineWebsite);
-  document.getElementById('line-total-addon-en').textContent = fmtAed(lineAddon);
-  document.getElementById('line-total-addon-ar').textContent = fmtAedAr(lineAddon);
   document.getElementById('subtotal-en').textContent = fmtAed(subtotal);
   document.getElementById('subtotal-ar').textContent = fmtAedAr(subtotal);
   document.getElementById('total-en').textContent = fmtAed(subtotal);
