@@ -132,6 +132,8 @@
 
   .service-card{background:var(--white);border:1px solid rgba(13,27,42,0.08);border-radius:16px;padding:28px;display:flex;flex-direction:column;}
   .service-card.featured{border:2px solid var(--coral);}
+  .service-thumb{width:100%;aspect-ratio:16/10;border-radius:12px;overflow:hidden;margin-bottom:16px;}
+  .service-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
   .service-icon{width:46px;height:46px;border-radius:12px;background:var(--teal-deep);display:flex;align-items:center;justify-content:center;color:var(--coral-bright);margin-bottom:16px;}
   .service-card h2{font-size:1.15rem;color:var(--teal-deep);margin-bottom:8px;}
   .service-price{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.4rem;color:var(--coral);margin-bottom:10px;}
@@ -143,6 +145,7 @@
   .service-card.quote h2{color:var(--white);}
   .service-card.quote p{color:rgba(255,253,249,0.75);}
   .service-card.quote .service-icon{background:rgba(255,253,249,0.1);}
+  .service-card.quote .service-thumb{aspect-ratio:3/1;}
 
   .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;font-weight:600;font-size:1rem;cursor:pointer;border:none;transition:transform .15s ease, box-shadow .15s ease;}
   .btn-primary{background:var(--coral);color:var(--white);}
@@ -208,6 +211,7 @@
 <div class="services-wrap">
 
   <div class="service-card featured">
+    <div class="service-thumb"><img src="images/work-easytoolbox.png" alt="Example custom website built by Gulfline Digital" loading="lazy" width="700" height="440"></div>
     <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
     <h2 data-lang="en">Custom Website</h2>
     <h2 data-lang="ar">موقع إلكتروني مخصص</h2>
@@ -220,6 +224,7 @@
   </div>
 
   <div class="service-card">
+    <div class="service-thumb"><img src="images/addon-social.jpg" alt="Social Media Setup" loading="lazy" width="400" height="250"></div>
     <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2"/></svg></div>
     <h2 data-lang="en">Social Media Setup</h2>
     <h2 data-lang="ar">إعداد حسابات التواصل الاجتماعي</h2>
@@ -232,6 +237,7 @@
   </div>
 
   <div class="service-card">
+    <div class="service-thumb"><img src="images/addon-seo.jpg" alt="Advanced SEO Setup" loading="lazy" width="400" height="250"></div>
     <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
     <h2 data-lang="en">Advanced SEO Setup</h2>
     <h2 data-lang="ar">إعداد SEO متقدم</h2>
@@ -244,6 +250,7 @@
   </div>
 
   <div class="service-card">
+    <div class="service-thumb"><img src="images/addon-checkin.jpg" alt="Monthly SEO Check-in" loading="lazy" width="400" height="250"></div>
     <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 8V12L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/></svg></div>
     <h2 data-lang="en">Monthly SEO Check-in</h2>
     <h2 data-lang="ar">متابعة شهرية لمحركات البحث</h2>
@@ -256,6 +263,7 @@
   </div>
 
   <div class="service-card quote">
+    <div class="service-thumb"><img src="images/addon-ads.jpg" alt="Social Media Advertising" loading="lazy" width="400" height="250"></div>
     <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 11L21 3L13 21L11 13L3 11Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
     <h2 data-lang="en">Social Media Advertising</h2>
     <h2 data-lang="ar">إعلانات التواصل الاجتماعي</h2>

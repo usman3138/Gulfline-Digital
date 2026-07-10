@@ -355,6 +355,8 @@
   @media (prefers-reduced-motion: reduce){
     .price-card-code .typed-line{width:100%;animation:none;}
   }
+  .price-card-thumb{width:100%;aspect-ratio:16/10;border-radius:14px;overflow:hidden;margin-bottom:24px;}
+  .price-card-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
   .price-tag{font-family:'Space Grotesk',sans-serif;font-size:3rem;font-weight:700;color:var(--coral-bright);}
   .price-tag sup{font-size:1.1rem;font-weight:500;}
   .price-note{font-size:0.9rem;color:rgba(255,253,249,0.6);margin-top:6px;margin-bottom:28px;}
@@ -899,6 +901,7 @@
     <p data-lang="ar">سعر خاص للعملاء الأوائل — عدد محدود بهذا السعر.</p>
 
     <div class="price-card">
+      <div class="price-card-thumb"><img src="images/work-easytoolbox.png" alt="Example custom website built by Gulfline Digital" loading="lazy" width="700" height="440"></div>
       <div class="price-card-code">
         <pre><span class="typed-line pl1">&lt;<span class="tag">html</span> <span class="attr">lang</span>=<span class="str">"en"</span>&gt;</span>
 <span class="typed-line pl2">  &lt;<span class="tag">price</span>&gt;1,500 AED&lt;/<span class="tag">price</span>&gt;</span>
