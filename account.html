@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign In — Gulfline Digital</title>
+<meta name="description" content="Sign in or create an account with Gulfline Digital.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0D1B2A">
+<link rel="canonical" href="https://gulflinedigital.com/account.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 46'%3E%3Crect width='46' height='46' rx='12' fill='%230D1B2A'/%3E%3Ctext x='23' y='31' font-family='Arial, sans-serif' font-size='20' font-weight='700' fill='%23E0C078' text-anchor='middle'%3EGD%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal-deep:#0D1B2A;--teal-mid:#16283D;--sand:#EFE7D8;--sand-light:#F9F6EF;
+    --coral:#C9A961;--coral-bright:#E0C078;--ink:#12242A;--white:#FFFDF9;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;background:var(--sand-light);color:var(--ink);line-height:1.6;overflow-x:hidden;}
+  [dir="rtl"] body{font-family:'Noto Kufi Arabic','Inter',sans-serif;}
+  h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-0.02em;}
+  [dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] h3,[dir="rtl"] .display{font-family:'Noto Kufi Arabic',sans-serif;letter-spacing:0;}
+  a{text-decoration:none;color:inherit;}
+  html [data-lang="ar"]{display:none !important;}
+  html[dir="rtl"] [data-lang="en"]{display:none !important;}
+  html[dir="rtl"] [data-lang="ar"]{display:block !important;}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(249,246,239,0.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(13,27,42,0.08);overflow:hidden;}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;max-width:1080px;margin:0 auto;position:relative;z-index:1;}
+  .logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.3rem;color:var(--teal-deep);display:flex;align-items:center;gap:10px;}
+  .logo-mark{width:46px;height:46px;flex-shrink:0;}
+  .main-links{display:flex;gap:22px;align-items:center;}
+  .main-links a{font-size:0.9rem;font-weight:600;color:var(--teal-deep);}
+  .main-links a:hover{color:var(--coral);}
+  @media (max-width:640px){.main-links{display:none;}}
+  .lang-toggle{display:flex;gap:4px;background:var(--sand);border-radius:999px;padding:4px;}
+  .lang-toggle button{padding:6px 16px;border:none;background:transparent;border-radius:999px;font-family:'Inter',sans-serif;font-size:0.85rem;font-weight:600;cursor:pointer;color:var(--teal-deep);transition:all .2s ease;}
+  .lang-toggle button.active{background:var(--teal-deep);color:var(--white);}
+
+  .page-hero{background:var(--teal-deep);color:var(--white);padding:60px 24px 50px;text-align:center;}
+  .page-hero .crumb{font-size:0.85rem;color:rgba(255,253,249,0.55);margin-bottom:14px;}
+  .page-hero .crumb a{color:var(--coral-bright);}
+  .page-hero h1{font-size:clamp(1.8rem,4vw,2.6rem);max-width:640px;margin:0 auto;}
+  .page-hero p{color:rgba(255,253,249,0.75);max-width:520px;margin:14px auto 0;font-size:1.05rem;}
+
+  .auth-wrap{max-width:420px;margin:0 auto;padding:56px 24px 100px;}
+  .auth-box{background:var(--white);border:1px solid rgba(13,27,42,0.08);border-radius:16px;padding:32px;}
+
+  .auth-tabs{display:flex;gap:4px;background:var(--sand);border-radius:999px;padding:4px;margin-bottom:24px;}
+  .auth-tabs button{flex:1;padding:10px;border:none;background:transparent;border-radius:999px;font-family:'Inter',sans-serif;font-size:0.9rem;font-weight:600;cursor:pointer;color:var(--teal-deep);}
+  .auth-tabs button.active{background:var(--teal-deep);color:var(--white);}
+
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:0.85rem;font-weight:600;color:var(--teal-deep);margin-bottom:6px;}
+  .field input{width:100%;padding:12px 14px;border:1px solid rgba(13,27,42,0.15);border-radius:10px;font-family:'Inter',sans-serif;font-size:0.95rem;background:var(--white);color:var(--ink);}
+  .field input:focus{outline:2px solid var(--coral);outline-offset:1px;}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:10px;font-weight:600;font-size:1rem;cursor:pointer;border:none;transition:transform .15s ease, box-shadow .15s ease;width:100%;}
+  .btn-primary{background:var(--coral);color:var(--white);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,169,97,0.35);}
+  .btn-primary:disabled{opacity:0.6;cursor:default;transform:none;box-shadow:none;}
+  .btn-google{background:var(--white);color:var(--ink);border:1px solid rgba(13,27,42,0.15);margin-bottom:18px;}
+  .btn-google:hover{background:var(--sand);}
+
+  .divider{display:flex;align-items:center;gap:12px;margin-bottom:18px;color:#9aa5a6;font-size:0.85rem;}
+  .divider::before,.divider::after{content:'';flex:1;height:1px;background:rgba(13,27,42,0.1);}
+
+  .auth-msg{font-size:0.88rem;margin-top:14px;text-align:center;line-height:1.5;}
+  .auth-msg.error{color:#b3261e;}
+  .auth-msg.success{color:#1b7a3d;}
+
+  footer{background:var(--teal-deep);color:rgba(255,253,249,0.5);padding:32px 24px;text-align:center;font-size:0.85rem;}
+  footer .logo{color:var(--white);justify-content:center;margin-bottom:8px;}
+  .footer-links{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:16px;}
+  .footer-links a{color:rgba(255,253,249,0.65);font-size:0.85rem;}
+  .footer-links a:hover{color:var(--coral-bright);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="logo">
+      <svg class="logo-mark" viewBox="0 0 46 46" fill="none">
+        <defs>
+          <linearGradient id="gdGrad" x1="6" y1="10" x2="40" y2="36" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#E0C078"/>
+            <stop offset="100%" stop-color="#C9A961"/>
+          </linearGradient>
+        </defs>
+        <rect x="1" y="1" width="44" height="44" rx="12" fill="#0D1B2A"/>
+        <path d="M18 15C15 15 12.5 17.8 12.5 23C12.5 28.2 15 31 18 31C20 31 21.6 29.9 22 28.5V24H18.3" stroke="url(#gdGrad)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M26 15V31H29.5C33 31 35 28.2 35 23C35 17.8 33 15 29.5 15H26Z" stroke="#EFE7D8" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
+        <line x1="9" y1="36" x2="37" y2="36" stroke="url(#gdGrad)" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      Gulfline Digital
+    </a>
+    <nav class="main-links">
+      <a href="services.html" data-lang="en">Services</a>
+      <a href="services.html" data-lang="ar">الخدمات</a>
+      <a href="about.html" data-lang="en">About</a>
+      <a href="about.html" data-lang="ar">من نحن</a>
+      <a href="contact.html" data-lang="en">Contact</a>
+      <a href="contact.html" data-lang="ar">تواصل</a>
+    </nav>
+    <div class="lang-toggle">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="btn-ar" onclick="setLang('ar')">عربي</button>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="crumb">
+    <span data-lang="en"><a href="index.html">Home</a> / Sign In</span>
+    <span data-lang="ar"><a href="index.html">الرئيسية</a> / تسجيل الدخول</span>
+  </div>
+  <h1 data-lang="en">Sign in to your account</h1>
+  <h1 data-lang="ar">سجّل الدخول إلى حسابك</h1>
+  <p data-lang="en">An account is required to place an order.</p>
+  <p data-lang="ar">يلزم وجود حساب لإتمام الطلب.</p>
+</section>
+
+<div class="auth-wrap">
+  <div class="auth-box">
+
+    <div class="auth-tabs">
+      <button id="tab-signin" class="active" onclick="switchTab('signin')" data-lang="en">Sign In</button>
+      <button id="tab-signin-ar" class="active" onclick="switchTab('signin')" data-lang="ar">تسجيل الدخول</button>
+      <button id="tab-signup" onclick="switchTab('signup')" data-lang="en">Sign Up</button>
+      <button id="tab-signup-ar" onclick="switchTab('signup')" data-lang="ar">إنشاء حساب</button>
+    </div>
+
+    <button type="button" class="btn btn-google" onclick="signInWithGoogle()">
+      <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.52 12.27c0-.85-.08-1.66-.22-2.45H12v4.64h6.47c-.28 1.5-1.13 2.77-2.4 3.62v3h3.88c2.27-2.09 3.57-5.17 3.57-8.81z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.07 7.94-2.92l-3.88-3c-1.08.72-2.45 1.15-4.06 1.15-3.12 0-5.77-2.11-6.71-4.94H1.28v3.1C3.26 21.3 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.29 14.29c-.24-.72-.38-1.49-.38-2.29s.14-1.57.38-2.29v-3.1H1.28A11.96 11.96 0 000 12c0 1.93.46 3.76 1.28 5.39l4.01-3.1z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.28 6.61l4.01 3.1c.94-2.83 3.59-4.96 6.71-4.96z"/></svg>
+      <span data-lang="en">Continue with Google</span>
+      <span data-lang="ar">المتابعة عبر جوجل</span>
+    </button>
+    <div class="divider" data-lang="en">or use email</div>
+    <div class="divider" data-lang="ar">أو استخدم البريد الإلكتروني</div>
+
+    <form id="signin-form" onsubmit="return handleSignIn(event)">
+      <div class="field">
+        <label data-lang="en">Email</label>
+        <label data-lang="ar">البريد الإلكتروني</label>
+        <input type="email" id="signin-email" required autocomplete="email">
+      </div>
+      <div class="field">
+        <label data-lang="en">Password</label>
+        <label data-lang="ar">كلمة المرور</label>
+        <input type="password" id="signin-password" required autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn btn-primary" id="signin-submit" data-lang="en">Sign In</button>
+      <button type="submit" class="btn btn-primary" id="signin-submit-ar" data-lang="ar">تسجيل الدخول</button>
+    </form>
+
+    <form id="signup-form" style="display:none;" onsubmit="return handleSignUp(event)">
+      <div class="field">
+        <label data-lang="en">Email</label>
+        <label data-lang="ar">البريد الإلكتروني</label>
+        <input type="email" id="signup-email" required autocomplete="email">
+      </div>
+      <div class="field">
+        <label data-lang="en">Password</label>
+        <label data-lang="ar">كلمة المرور</label>
+        <input type="password" id="signup-password" required minlength="6" autocomplete="new-password">
+      </div>
+      <button type="submit" class="btn btn-primary" id="signup-submit" data-lang="en">Create Account</button>
+      <button type="submit" class="btn btn-primary" id="signup-submit-ar" data-lang="ar">إنشاء حساب</button>
+    </form>
+
+    <p class="auth-msg" id="auth-msg"></p>
+  </div>
+</div>
+
+<footer>
+  <div class="logo" data-lang="en">Gulfline Digital</div>
+  <div class="logo" data-lang="ar">جلف لاين ديجيتال</div>
+  <p data-lang="en">Websites for tutors, trainers & freelancers across the UAE.</p>
+  <p data-lang="ar">مواقع إلكترونية للمدرّسين والمدرّبين والمستقلين في جميع أنحاء الإمارات.</p>
+  <div class="footer-links">
+    <a href="index.html" data-lang="en">Home</a>
+    <a href="index.html" data-lang="ar">الرئيسية</a>
+    <a href="services.html" data-lang="en">Services</a>
+    <a href="services.html" data-lang="ar">الخدمات</a>
+    <a href="about.html" data-lang="en">About</a>
+    <a href="about.html" data-lang="ar">من نحن</a>
+    <a href="contact.html" data-lang="en">Contact</a>
+    <a href="contact.html" data-lang="ar">تواصل</a>
+    <a href="privacy.html" data-lang="en">Privacy Policy</a>
+    <a href="privacy.html" data-lang="ar">سياسة الخصوصية</a>
+    <a href="terms.html" data-lang="en">Terms &amp; Conditions</a>
+    <a href="terms.html" data-lang="ar">الشروط والأحكام</a>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="supabase-config.js"></script>
+<script>
+function setLang(lang){
+  const html = document.documentElement;
+  if(lang === 'ar'){
+    html.setAttribute('lang','ar');
+    html.setAttribute('dir','rtl');
+    document.getElementById('btn-ar').classList.add('active');
+    document.getElementById('btn-en').classList.remove('active');
+  } else {
+    html.setAttribute('lang','en');
+    html.setAttribute('dir','ltr');
+    document.getElementById('btn-en').classList.add('active');
+    document.getElementById('btn-ar').classList.remove('active');
+  }
+}
+
+function getRedirectTarget(){
+  const params = new URLSearchParams(location.search);
+  return params.get('redirect') || 'index.html';
+}
+
+function switchTab(tab){
+  const isSignIn = tab === 'signin';
+  document.getElementById('signin-form').style.display = isSignIn ? 'block' : 'none';
+  document.getElementById('signup-form').style.display = isSignIn ? 'none' : 'block';
+  document.getElementById('tab-signin').classList.toggle('active', isSignIn);
+  document.getElementById('tab-signin-ar').classList.toggle('active', isSignIn);
+  document.getElementById('tab-signup').classList.toggle('active', !isSignIn);
+  document.getElementById('tab-signup-ar').classList.toggle('active', !isSignIn);
+  document.getElementById('auth-msg').textContent = '';
+}
+
+function showMsg(text, isError){
+  const el = document.getElementById('auth-msg');
+  el.textContent = text;
+  el.className = 'auth-msg ' + (isError ? 'error' : 'success');
+}
+
+async function handleSignIn(e){
+  e.preventDefault();
+  const email = document.getElementById('signin-email').value;
+  const password = document.getElementById('signin-password').value;
+  const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+  if(error){ showMsg(error.message, true); return false; }
+  location.href = getRedirectTarget();
+  return false;
+}
+
+async function handleSignUp(e){
+  e.preventDefault();
+  const email = document.getElementById('signup-email').value;
+  const password = document.getElementById('signup-password').value;
+  const { data, error } = await supabaseClient.auth.signUp({ email, password });
+  if(error){ showMsg(error.message, true); return false; }
+  if(data.session){
+    location.href = getRedirectTarget();
+  } else {
+    showMsg('Check your email to confirm your account, then sign in.', false);
+  }
+  return false;
+}
+
+async function signInWithGoogle(){
+  const redirectTo = location.origin + '/account.html?redirect=' + encodeURIComponent(getRedirectTarget());
+  await supabaseClient.auth.signInWithOAuth({ provider: 'google', options: { redirectTo } });
+}
+
+(async function initAccountPage(){
+  if(!supabaseClient){
+    showMsg('Accounts are being set up — check back soon.', true);
+    document.getElementById('signin-form').querySelectorAll('input,button').forEach(el => el.disabled = true);
+    document.getElementById('signup-form').querySelectorAll('input,button').forEach(el => el.disabled = true);
+    document.querySelector('.btn-google').disabled = true;
+    return;
+  }
+  const { data: { session } } = await supabaseClient.auth.getSession();
+  if(session){
+    location.href = getRedirectTarget();
+  }
+})();
+</script>
+
+</body>
+</html>

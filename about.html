@@ -7,7 +7,11 @@
 <meta name="description" content="Gulfline Digital is a Dubai-based web design studio building fast, custom-coded websites for tutors, trainers, coaches and freelancers across the UAE.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0D1B2A">
-<link rel="canonical" href="https://gulflinedigital.com/about.html"><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 46'%3E%3Crect width='46' height='46' rx='12' fill='%230D1B2A'/%3E%3Ctext x='23' y='31' font-family='Arial, sans-serif' font-size='20' font-weight='700' fill='%23E0C078' text-anchor='middle'%3EGD%3C/text%3E%3C/svg%3E">
+<link rel="canonical" href="https://gulflinedigital.com/about.html">
+<link rel="alternate" hreflang="en" href="https://gulflinedigital.com/about.html">
+<link rel="alternate" hreflang="ar" href="https://gulflinedigital.com/ar/about.html">
+<link rel="alternate" hreflang="x-default" href="https://gulflinedigital.com/about.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 46'%3E%3Crect width='46' height='46' rx='12' fill='%230D1B2A'/%3E%3Ctext x='23' y='31' font-family='Arial, sans-serif' font-size='20' font-weight='700' fill='%23E0C078' text-anchor='middle'%3EGD%3C/text%3E%3C/svg%3E">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Gulfline Digital">
@@ -51,6 +55,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="supabase-config.js"></script>
 <style>
   :root{
     --teal-deep:#0D1B2A;
@@ -146,6 +152,8 @@
       <a href="about.html" class="current" data-lang="ar">من نحن</a>
       <a href="contact.html" data-lang="en">Contact</a>
       <a href="contact.html" data-lang="ar">تواصل</a>
+      <a href="account.html" data-lang="en" id="nav-account-en">Sign In</a>
+      <a href="account.html" data-lang="ar" id="nav-account-ar">تسجيل الدخول</a>
     </nav>
     <div class="lang-toggle">
       <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
@@ -239,6 +247,7 @@ function setLang(lang){
   }
 }
 </script>
+<script src="auth-nav.js"></script>
 
 </body>
 </html>

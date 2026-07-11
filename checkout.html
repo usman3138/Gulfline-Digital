@@ -12,6 +12,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="supabase-config.js"></script>
 <style>
   :root{
     --teal-deep:#0D1B2A;--teal-mid:#16283D;--sand:#EFE7D8;--sand-light:#F9F6EF;
@@ -101,6 +103,16 @@
 </head>
 <body>
 
+<script>
+(async function requireSignIn(){
+  if(!supabaseClient) return;
+  const { data: { session } } = await supabaseClient.auth.getSession();
+  if(!session){
+    location.href = 'account.html?redirect=checkout.html';
+  }
+})();
+</script>
+
 <header>
   <div class="nav">
     <a href="index.html" class="logo">
@@ -125,6 +137,8 @@
       <a href="about.html" data-lang="ar">من نحن</a>
       <a href="contact.html" data-lang="en">Contact</a>
       <a href="contact.html" data-lang="ar">تواصل</a>
+      <a href="account.html" data-lang="en" id="nav-account-en">Sign In</a>
+      <a href="account.html" data-lang="ar" id="nav-account-ar">تسجيل الدخول</a>
     </nav>
     <div class="lang-toggle">
       <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
@@ -374,6 +388,7 @@ function recalc(){
 
 recalc();
 </script>
+<script src="auth-nav.js"></script>
 
 </body>
 </html>
