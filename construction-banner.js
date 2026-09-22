@@ -4,12 +4,13 @@
 
   var style = document.createElement('style');
   style.textContent =
-    '#gd-construction-banner{background:#8a4a12;color:#fff;font-family:"Inter",sans-serif;' +
-    'padding:12px 44px;font-size:0.85rem;line-height:1.5;text-align:center;position:relative;}' +
+    '#gd-construction-banner{background:var(--sand,#EFE7D8);color:var(--teal-deep,#0D1B2A);font-family:"Inter",sans-serif;' +
+    'padding:10px 44px;font-size:0.8rem;line-height:1.5;text-align:center;position:relative;' +
+    'border-bottom:1px solid rgba(13,27,42,0.1);}' +
     '#gd-construction-banner .gd-banner-close{position:absolute;top:50%;right:14px;transform:translateY(-50%);' +
-    'background:none;border:none;color:#fff;font-size:1.4rem;line-height:1;cursor:pointer;padding:4px 8px;}' +
+    'background:none;border:none;color:inherit;font-size:1.3rem;line-height:1;cursor:pointer;padding:4px 8px;opacity:0.6;}' +
     'html[dir="rtl"] #gd-construction-banner .gd-banner-close{right:auto;left:14px;}' +
-    '#gd-construction-banner .gd-banner-close:hover{opacity:0.75;}';
+    '#gd-construction-banner .gd-banner-close:hover{opacity:1;}';
   document.head.appendChild(style);
 
   function showBanner(){
@@ -17,8 +18,8 @@
     var banner = document.createElement('div');
     banner.id = 'gd-construction-banner';
     banner.innerHTML =
-      '<span data-lang="en">This website is under construction &mdash; we\'re still finalizing our business license, so content, pricing and services are subject to change.</span>' +
-      '<span data-lang="ar">هذا الموقع قيد الإنشاء &mdash; ما زلنا في طور استكمال الرخصة التجارية، لذا قد يتغيّر المحتوى والأسعار والخدمات.</span>' +
+      '<span data-lang="en">Gulfline Digital is a new UAE-based business, currently completing trade licence registration.</span>' +
+      '<span data-lang="ar">جلف لاين ديجيتال شركة إماراتية جديدة، بصدد استكمال إجراءات الرخصة التجارية.</span>' +
       '<button type="button" class="gd-banner-close" aria-label="Close">&times;</button>';
     document.body.insertBefore(banner, document.body.firstChild);
     banner.querySelector('.gd-banner-close').addEventListener('click', function(){
