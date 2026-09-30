@@ -434,6 +434,17 @@
   .faq-inner{max-width:720px;margin:0 auto;}
   .faq-head{text-align:center;margin-bottom:48px;}
   .faq-head h2{font-size:clamp(1.6rem,3.5vw,2.2rem);color:var(--teal-deep);margin-bottom:14px;}
+  .home-blog{padding:80px 24px;background:var(--sand-light);}
+  .home-blog-inner{max-width:1080px;margin:0 auto;}
+  .home-blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:8px;}
+  .hb-card{background:var(--white);border-radius:16px;overflow:hidden;border:1px solid rgba(13,27,42,0.07);display:flex;flex-direction:column;transition:transform .2s ease,box-shadow .2s ease;}
+  .hb-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(13,27,42,0.12);}
+  .hb-card img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;display:block;}
+  .hb-card div{padding:18px 20px 22px;}
+  .hb-card h3{font-size:1.08rem;color:var(--teal-deep);margin-bottom:8px;}
+  .hb-card p{font-size:0.93rem;color:#4a5a5c;}
+  .home-blog-more{text-align:center;margin-top:30px;}
+  .home-blog-more a{font-weight:600;color:var(--teal-deep);border-bottom:2px solid var(--coral);padding-bottom:2px;}
   .faq-head p{color:#4a5a5c;font-size:1.05rem;}
   .faq-item{border:1px solid rgba(13,27,42,0.08);border-radius:14px;background:var(--white);margin-bottom:14px;overflow:hidden;}
   .faq-item summary{padding:20px 24px;font-weight:600;color:var(--teal-deep);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;}
@@ -574,6 +585,8 @@
     <nav class="main-links">
       <a href="services.html" data-lang="en">Services</a>
       <a href="services.html" data-lang="ar">الخدمات</a>
+      <a href="/blog/" data-lang="en">Blog</a>
+      <a href="/blog/" data-lang="ar">المدونة</a>
       <a href="about.html" data-lang="en">About</a>
       <a href="about.html" data-lang="ar">من نحن</a>
       <a href="contact.html" data-lang="en">Contact</a>
@@ -1014,6 +1027,32 @@
   </div>
 </section>
 
+<section class="home-blog reveal" id="blog">
+  <div class="home-blog-inner">
+    <div class="faq-head">
+      <h2 data-lang="en">From the blog</h2>
+      <h2 data-lang="ar">من المدونة</h2>
+      <p data-lang="en">Practical guides for getting more clients from your website, Google and WhatsApp.</p>
+      <p data-lang="ar">أدلة عملية لجذب المزيد من العملاء عبر موقعك وجوجل وواتساب (المقالات باللغة الإنجليزية).</p>
+    </div>
+    <div class="home-blog-grid">
+      <a class="hb-card" href="/blog/website-cost-uae.html" lang="en">
+        <img src="/images/blog/website-cost-uae.webp" alt="Calculator and numbers on a desk" width="960" height="640" loading="lazy">
+        <div><h3>How Much Does a Website Cost in the UAE in 2026?</h3><p>Real price ranges and the yearly costs to budget for.</p></div>
+      </a>
+      <a class="hb-card" href="/blog/local-seo-dubai-freelancers.html" lang="en">
+        <img src="/images/blog/local-seo.webp" alt="Google search on a tablet screen" width="1024" height="684" loading="lazy">
+        <div><h3>Local SEO for Dubai Freelancers</h3><p>Get found on Google Maps and local search in your area.</p></div>
+      </a>
+      <a class="hb-card" href="/blog/whatsapp-button-website.html" lang="en">
+        <img src="/images/blog/whatsapp-button.webp" alt="Smartphone showing the WhatsApp logo" width="1024" height="683" loading="lazy">
+        <div><h3>How to Add a WhatsApp Button to Your Website</h3><p>Step-by-step, with a pre-filled message and UAE number format.</p></div>
+      </a>
+    </div>
+    <div class="home-blog-more"><a href="/blog/" data-lang="en">Read all articles &rarr;</a><a href="/blog/" data-lang="ar">اقرأ جميع المقالات &larr;</a></div>
+  </div>
+</section>
+
 <section class="faq reveal" id="faq">
   <div class="faq-inner">
     <div class="faq-head">
@@ -1066,6 +1105,8 @@
   <div class="footer-links">
     <a href="services.html" data-lang="en">Services</a>
     <a href="services.html" data-lang="ar">الخدمات</a>
+    <a href="/blog/" data-lang="en">Blog</a>
+    <a href="/blog/" data-lang="ar">المدونة</a>
     <a href="about.html" data-lang="en">About</a>
     <a href="about.html" data-lang="ar">من نحن</a>
     <a href="contact.html" data-lang="en">Contact</a>
