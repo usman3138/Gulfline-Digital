@@ -1,0 +1,8 @@
+# Gulfline Digital - Apache / LiteSpeed configuration (Hostinger)
+
+RewriteEngine On
+
+# -- Keep project files off the public site --
+RewriteRule \.md$ - [F,L]
+RewriteRule (^|/)\.env - [F,L]
+RewriteRule ^(docs|tests)(/|$) - [F,L]
