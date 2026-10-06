@@ -2,6 +2,7 @@
 
 One line per change, newest first. Entries before 2026-10-02 are taken from the git history.
 
+- 2026-10-06 — Added Google Tag Manager (GTM-588P5J29) to every page: script in `<head>`, noscript after `<body>`.
 - 2026-10-02 — Added project structure and docs: CLAUDE, CHANGELOG, `.env.example`, `docs/`, `tests/`; README brought up to date. Automated site check `tests/check-site.mjs`. New `.htaccess` keeps `.md`, `.env*`, `docs/` and `tests/` off the public site.
 - 2026-09-30 — Blog added: 10 articles with photos, blog index, RSS feed, sitemap entries.
 - 2026-09-22 — Under-construction banner toned down for AdSense review.
