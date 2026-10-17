@@ -73,3 +73,7 @@ No build tools required. Open `index.html` in a browser, or run `npx serve .` so
 
 ---
 © Gulfline Digital. All rights reserved.
+
+## Documentation standard
+
+Read [AGENTS.md](AGENTS.md), [MEMORY.md](MEMORY.md) and [current status](docs/PROJECT_STATUS.md) before work. The [documentation index](docs/DOCUMENTATION_INDEX.md) maps every applicable shared documentation role to its existing or newly added document. The [project guide](docs/PROJECT_GUIDE.md) records scope, pending work and documentation adoption; historical records remain in place.

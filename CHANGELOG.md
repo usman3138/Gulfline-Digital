@@ -1,5 +1,7 @@
 # Changelog
 
+- 2026-10-11 - Adopted the shared documentation standard: added/extended AGENTS.md, MEMORY.md, docs/DOCUMENTATION_INDEX.md, docs/PROJECT_STATUS.md and docs/PROJECT_GUIDE.md; linked README and preserved existing feature/setup/release records. Documentation validation recorded in PROJECT_STATUS.md. Documentation only; no application build, version change or publication.
+
 One line per change, newest first. Entries before 2026-10-02 are taken from the git history.
 
 - 2026-10-06 — Added Google tag (gtag.js, G-D6BXRT8FXQ) to every page, right after the Tag Manager script in `<head>`.
