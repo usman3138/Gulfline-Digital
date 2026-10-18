@@ -1,0 +1,50 @@
+/* Neumorphism for Gulfline Digital: soft raised and pressed surfaces in one sand colour.
+   Linked after each page's own <style>, so these rules win. Brand colours (navy, gold) are unchanged. */
+:root{
+  --nm:#ECE6D9;
+  --nm-dark:#CFC6B2;
+  --nm-light:#FFFFFF;
+  --nm-raise:7px 7px 16px var(--nm-dark),-7px -7px 16px var(--nm-light);
+  --nm-raise-sm:4px 4px 9px var(--nm-dark),-4px -4px 9px var(--nm-light);
+  --nm-press:inset 4px 4px 9px var(--nm-dark),inset -4px -4px 9px var(--nm-light);
+}
+body,.problem,.offer,.audience,.work,.addons,.faq,.home-blog,.cta-final,.showcase,.services-wrap,.services-cta,.checkout-wrap,.quote-wrap,.contact-grid,.blog-list,.article{background:var(--nm);}
+
+/* header: a raised bar; the animated waves stay */
+header{background:rgba(236,230,217,.94);border-bottom:none;box-shadow:0 8px 18px var(--nm-dark),0 -2px 0 var(--nm-light);}
+.lang-toggle{background:var(--nm);box-shadow:var(--nm-press);}
+.lang-toggle button.active{background:var(--nm);color:var(--teal-deep,#0D1B2A);box-shadow:var(--nm-raise-sm);}
+
+/* raised cards */
+.feature-card,.work-card,.addon-card,.hb-card,.faq-item,.service-card,.card,.contact-card,.cart-item,.payment-box,.payment-option,.quote-box,.cta-box,.toc{
+  background:var(--nm);border:none;border-radius:22px;box-shadow:var(--nm-raise);
+  transition:box-shadow .25s ease,transform .25s ease,opacity .7s ease;
+}
+.feature-card:hover,.work-card:hover,.hb-card:hover,.card:hover,.service-card:hover{
+  transform:translateY(-3px);box-shadow:10px 10px 22px var(--nm-dark),-10px -10px 22px var(--nm-light);
+}
+.faq-item[open],.payment-option.selected,.payment-option.active{box-shadow:var(--nm-press);}
+.payment-option-disabled{box-shadow:var(--nm-press);opacity:.7;}
+.service-icon,.contact-icon,.pm-icon{background:var(--nm);box-shadow:var(--nm-raise-sm);border-radius:16px;}
+.service-card.featured{box-shadow:var(--nm-raise),0 0 0 2px rgba(201,169,97,.55);}
+
+/* buttons: raised, pressed when tapped */
+.btn{box-shadow:var(--nm-raise-sm);border-radius:14px;transition:box-shadow .15s ease,transform .15s ease;}
+.btn:hover{transform:translateY(-1px);}
+.btn:active{box-shadow:var(--nm-press);transform:none;}
+.btn-primary:hover{box-shadow:6px 6px 14px var(--nm-dark),-6px -6px 14px var(--nm-light);}
+.btn-outline,.btn-ghost{background:var(--nm);border:none;color:var(--ink,#12242A);}
+.btn-paypal:hover{box-shadow:6px 6px 14px var(--nm-dark),-6px -6px 14px var(--nm-light);}
+
+/* form fields: pressed in */
+input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]),textarea,select{
+  background:var(--nm);border:none;border-radius:14px;box-shadow:var(--nm-press);color:var(--ink,#12242A);
+}
+input:focus,textarea:focus,select:focus{outline:2px solid rgba(201,169,97,.7);outline-offset:2px;}
+.qty-stepper{background:var(--nm);box-shadow:var(--nm-press);border-radius:14px;}
+
+/* tags and small chips */
+.tag{background:var(--nm);}
+.tag{box-shadow:var(--nm-raise-sm);border-radius:999px;}
+
+@media (prefers-reduced-motion:reduce){.feature-card,.work-card,.hb-card,.card,.service-card,.btn{transition:none;}}

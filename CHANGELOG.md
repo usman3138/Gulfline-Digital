@@ -1,5 +1,6 @@
 # Changelog
 
+- 2026-10-18 - Neumorphism look across the site: new `neumorphism.css` (soft raised and pressed surfaces in one sand colour: header, language toggle, feature/service/blog/contact/FAQ/checkout cards, buttons, form fields) linked at the end of `<head>` on all 25 pages (`?v=1`). Gold and navy brand colours, dark hero and footer are unchanged; no text or layout changes. Home and Services checked in headless Chrome (desktop); Arabic pages, blog, checkout, mobile width not looked at. `node tests/check-site.mjs` passes.
 - 2026-10-11 - Adopted the shared documentation standard: added/extended AGENTS.md, MEMORY.md, docs/DOCUMENTATION_INDEX.md, docs/PROJECT_STATUS.md and docs/PROJECT_GUIDE.md; linked README and preserved existing feature/setup/release records. Documentation validation recorded in PROJECT_STATUS.md. Documentation only; no application build, version change or publication.
 
 One line per change, newest first. Entries before 2026-10-02 are taken from the git history.
