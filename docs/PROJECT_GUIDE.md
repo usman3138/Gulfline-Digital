@@ -22,6 +22,12 @@ Pending: Supabase placeholders and sign-in activation remain pending; historic A
 
 No new feature schedule or launch date was agreed during documentation adoption.
 
+### Owner-requested work — 2026-11-04
+
+Implemented locally: scheduled bilingual publisher, 13 staged original articles, shared family links on existing and staged pages, bilingual blog-index controls/cards, regression and staging checks. The requested publication window is 2026-11-05 through 2026-12-05; its 13 Monday/Wednesday/Friday dates are 6 November through 4 December. This explicit owner request supersedes the normal low-frequency editorial guidance for this calendar only. [Publisher guide](scheduled/README.md) records operation and the schedule.
+
+Pending: manager review and push, followed by verification of the first Actions run and Hostinger publication. No publication or current AdSense approval claim is made. Primary sources were reviewed on 4 November; future publication does not imply a fresh source review. Original legacy blog bodies remain as they were; the new articles and index card descriptions have paired English/Arabic text.
+
 ## UI and user flows
 
 Pages contain their own markup/styles and language pairs; ar/ contains Arabic-first copies. Preserve RTL, matching English/Arabic content, navigation and mobile layouts.

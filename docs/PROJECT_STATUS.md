@@ -1,5 +1,15 @@
 # Project status
 
+## Current update — 2026-11-04
+
+Implemented locally: Dubai-day scheduled publisher/workflow, 13 original EN/AR articles staged for 6 November–4 December, identical bilingual related-family footer on all 25 existing pages and queued posts, and bilingual index controls/card descriptions. [Schedule and operations](scheduled/README.md) includes exact dates, content word-count convention and recovery.
+
+Validation performed locally: both Node checks pass; six Python publisher regressions pass. Chrome checked home, Arabic home, index and every queued article at desktop/phone widths in EN/AR; screenshots inspected for the Arabic mobile article/footer. HTTPS third-party resources were blocked during browser checks. See [testing evidence](../tests/README.md).
+
+Not published or deployed. No git commit/push was run. Next: manager review/push, first Actions-run verification and live article/feed/sitemap checks. Repository Actions permissions and Hostinger reaction to its future push are unverified. Existing account activation and AdSense follow-up remain separate. The requested shared standard at `C:/Users/Usman/AGENTS.md` was unavailable here; the supplied protocol and available project docs were followed.
+
+## Historical status
+
 Updated 2026-10-11; compiled from existing local documentation, not a fresh application or production audit.
 
 ## Current scope

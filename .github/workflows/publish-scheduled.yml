@@ -1,0 +1,35 @@
+name: Publish scheduled blog post
+on:
+  schedule:
+    - cron: '17 4,8,12 * * *' # Dubai 08:17, 12:17, 16:17 backup attempts
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: scheduled-blog-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: python3 tests/scheduled-publisher.test.py
+      - run: python3 docs/scheduled/publish.py
+      - run: node tests/check-site.mjs
+      - run: node tests/check-scheduled.mjs
+      - name: Save scheduled publication
+        shell: bash
+        run: |
+          if [ -n "$(git status --porcelain -- blog sitemap.xml CHANGELOG.md docs/scheduled/last-published-date.txt)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add blog/index.html blog/rss.xml blog/*.html sitemap.xml CHANGELOG.md docs/scheduled/last-published-date.txt
+            git commit -m "Publish scheduled Gulfline Digital article"
+            git push
+          fi

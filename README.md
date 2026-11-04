@@ -33,7 +33,7 @@ about.html, services.html, contact.html, privacy.html, terms.html
 checkout.html           → order form, pays through PayPal
 account.html            → sign-in page (Supabase, not switched on yet)
 ar/                     → Arabic-first copies of the main pages
-blog/                   → 10 articles, index.html and rss.xml
+blog/                   → published articles, index.html and rss.xml
 images/                 → photos (WebP)
 auth-nav.js             → shows "Sign out" in the menu when signed in
 supabase-config.js      → Supabase project URL and public key (placeholders)
@@ -77,3 +77,11 @@ No build tools required. Open `index.html` in a browser, or run `npx serve .` so
 ## Documentation standard
 
 Read [AGENTS.md](AGENTS.md), [MEMORY.md](MEMORY.md) and [current status](docs/PROJECT_STATUS.md) before work. The [documentation index](docs/DOCUMENTATION_INDEX.md) maps every applicable shared documentation role to its existing or newly added document. The [project guide](docs/PROJECT_GUIDE.md) records scope, pending work and documentation adoption; historical records remain in place.
+
+## Scheduled articles
+
+Thirteen English/Arabic articles are staged in `docs/scheduled/` for Monday/Wednesday/Friday dates from 6 November to 4 December 2026. They are not published yet. The [publisher guide and schedule](docs/scheduled/README.md) explains the manifest, Dubai day limit, retries, review and recovery. The workflow will publish only after the manager pushes this change and GitHub Actions runs successfully; pushes to main publish the website automatically.
+
+Run `node tests/check-site.mjs`, `node tests/check-scheduled.mjs` and `python tests/scheduled-publisher.test.py` before review. Python 3.10+ and Node.js are sufficient; there is no application build. Do not run the publisher in the checkout to preview future articles: its `TODAY` override writes publication files. Use a disposable copy for previews.
+
+The same bilingual “Our apps and sites” footer fragment appears on all 25 existing pages and all staged posts. `family.css` styles it; `site-language.js` supplies language switching on the blog index and new posts. Both languages of each new article share one URL, preserving the requested `data-lang` convention.

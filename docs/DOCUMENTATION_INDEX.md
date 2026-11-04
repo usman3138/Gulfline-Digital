@@ -21,6 +21,7 @@ Updated 2026-10-11. Existing filenames fulfill the shared documentation roles; u
 | Release / deployment | [setup.md](setup.md) |
 | Troubleshooting | [PROJECT_GUIDE.md](PROJECT_GUIDE.md) |
 | Decisions | [decisions.md](decisions.md) |
+| Scheduled bilingual publishing and editorial calendar | [scheduled/README.md](scheduled/README.md) |
 | Documentation adoption decision | [PROJECT_GUIDE.md](PROJECT_GUIDE.md) |
 
 The project guide contains labeled sections for consolidated roles. Detailed feature documents remain authoritative for individual behaviors. VPN server documentation is not applicable to these projects.
