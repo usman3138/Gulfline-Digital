@@ -1,5 +1,6 @@
 # Changelog
 
+- 2026-11-11 - Published `blog/uae-online-service-licence-launch-checklist.html` (scheduled 2026-11-11); updated bilingual blog card, RSS and sitemap. Sources reviewed on the article.
 - 2026-11-09 - Published `blog/whatsapp-marketing-permission-workflow.html` (scheduled 2026-11-09); updated bilingual blog card, RSS and sitemap. Sources reviewed on the article.
 - 2026-11-06 - Published `blog/google-business-profile-home-visit-eligibility.html` (scheduled 2026-11-06); updated bilingual blog card, RSS and sitemap. Sources reviewed on the article.
 - 2026-11-04 - Implemented Dubai-day scheduled bilingual publishing with guarded retries, native blog cards/JSON-LD, RSS/sitemap/changelog updates and future Actions automation; staged 13 original EN/AR guides for 6 November–4 December with reviewed primary sources, worked examples and original SVG diagrams. Added bilingual family footer to all 25 existing pages and staged posts, shared styles and blog language controls; updated operation/status docs. Site/staging Node checks and six Python regressions passed; local Chrome desktop/mobile EN/AR checks completed with external HTTPS resources blocked. Not committed, pushed, published or deployed; live workflow/Hostinger delivery unverified.
