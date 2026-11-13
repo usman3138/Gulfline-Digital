@@ -1,5 +1,6 @@
 # Changelog
 
+- 2026-11-13 - Published `blog/domain-hosting-handover-owner-checklist.html` (scheduled 2026-11-13); updated bilingual blog card, RSS and sitemap. Sources reviewed on the article.
 - 2026-11-11 - Published `blog/uae-online-service-licence-launch-checklist.html` (scheduled 2026-11-11); updated bilingual blog card, RSS and sitemap. Sources reviewed on the article.
 - 2026-11-09 - Published `blog/whatsapp-marketing-permission-workflow.html` (scheduled 2026-11-09); updated bilingual blog card, RSS and sitemap. Sources reviewed on the article.
 - 2026-11-06 - Published `blog/google-business-profile-home-visit-eligibility.html` (scheduled 2026-11-06); updated bilingual blog card, RSS and sitemap. Sources reviewed on the article.
